@@ -18,22 +18,14 @@ const elements = {
   interfaces: {
     selectVocab: document.querySelector('#select-vocab-interface'),
     review: document.querySelector('#review-interface'),
-    quiz: document.querySelector('#review-interface'),
   },
   menu: {
     vocabList: document.querySelector('#vocab-list'),
     startReviewBtn: document.querySelector('#start-review-btn'),
-    // startQuizBtn: document.querySelector('#start-quiz-btn'),
   },
-  card: {
-    front: {
-      image: document.querySelector('#card-img-front'),
-      text: document.querySelector('#card-text-front'),
-    },
-    back: {
-      image: document.querySelector('#card-img-back'),
-      text: document.querySelector('#card-text-back'),
-    },
+  review: {
+    sentenceEng: document.querySelector('#sentence-eng'),
+    sentenceJp: document.querySelector('#sentence-jp'),
   }
 }
 
