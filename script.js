@@ -272,7 +272,9 @@ elements.quiz.sentenceEng.addEventListener('click', (e) => {
   if (e.target.matches('.word-eng')) {
     const wordDiv = e.target;
 
-    wordDiv.classList.toggle('is-clozed');
+    // wordDiv.classList.toggle('is-clozed');
+    wordDiv.classList.remove('is-clozed');
+    wordDiv.setAttribute('contenteditable', 'true');
   }
 });
 
