@@ -26,14 +26,20 @@ const elements = {
   review: {
     sentenceEng: document.querySelector('#sentence-eng'),
     sentenceJp: document.querySelector('#sentence-jp'),
-  }
+    audio: document.querySelector('#eng-audio'),
+    cardControls: {
+      prevCard: document.querySelector('#prev-card'),
+      shuffleCards: document.querySelector('#shuffle-cards'),
+      nextCard: document.querySelector('#next-card'),
+    }
+  },
 }
 
 let vocabData;
 let lookup = {};
 let index = {};
 let vocabList;
-let cardIndex = 0;
+let currentIndex = 0;
 let currentCard;
 
 // Function declarations
@@ -165,9 +171,15 @@ const buildQuizVocabList = () => {
   return res.flat();
 }
 
-const renderCard = ({ display, image, audio  }) => {
-  const eng = display.eng;
-  const jp = display.jp;
+const getCurrentReview = (lookup, vocabList, currentIndex) => {
+  const cardID = vocabList[currentIndex];
+  return lookup[cardID];
+}
+
+const renderReview = ({ eng, jp, audio }) => {
+  elements.review.sentenceEng.innerHTML = eng;
+  elements.review.sentenceJp.textContent = jp;
+  elements.review.audio.src = PATHS.assets.audio.eng + audio;
 }
 
 // Event listeners
@@ -175,7 +187,6 @@ document.addEventListener('DOMContentLoaded', init);
 
 elements.menu.startReviewBtn.addEventListener('click', () => {
   vocabList = buildQuizVocabList();
-  console.log(vocabList)
 
   if (!vocabList.length) {
     alert('Please select some data!');
@@ -184,6 +195,9 @@ elements.menu.startReviewBtn.addEventListener('click', () => {
 
   elements.interfaces.selectVocab.classList.add('hidden');
   elements.interfaces.review.classList.remove('hidden');
+
+  currentCard = getCurrentReview(lookup, vocabList, currentIndex);
+  renderReview(currentCard);
 });
 
 elements.menu.vocabList.addEventListener('change', (e) => {
