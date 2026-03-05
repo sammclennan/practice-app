@@ -17,13 +17,13 @@ const audioCache = {};
 const elements = {
   interfaces: {
     selectVocab: document.querySelector('#select-vocab-interface'),
-    review: document.querySelector('#review-interface'),
+    quiz: document.querySelector('#quiz-interface'),
   },
   menu: {
     vocabList: document.querySelector('#vocab-list'),
-    startReviewBtn: document.querySelector('#start-review-btn'),
+    startQuizBtn: document.querySelector('#start-quiz-btn'),
   },
-  review: {
+  quiz: {
     sentenceEng: document.querySelector('#sentence-eng'),
     sentenceJp: document.querySelector('#sentence-jp'),
     audio: document.querySelector('#eng-audio'),
@@ -176,10 +176,26 @@ const getCurrentQuestion = (lookup, vocabList, currentIndex) => {
   return lookup[cardID];
 }
 
+const clozeSentence = (text) => {
+  const splitText = text.split(' ');
+  console.log(splitText);
+
+  const htmlArr = [];
+
+  splitText.forEach(word => {
+    htmlArr.push(`<div class="sentenceEl isClozed">${word}</div>`);
+  });
+
+  return htmlArr.join('');
+
+}
+
 const renderQuestion = ({ eng, jp, audio }) => {
-  elements.review.sentenceEng.innerHTML = eng;
-  elements.review.sentenceJp.textContent = jp;
-  // elements.review.audio.src = PATHS.assets.audio.eng + audio;
+  elements.quiz.sentenceEng.innerHTML = clozeSentence(eng);
+  return;
+  elements.quiz.sentenceEng.textContent = eng;
+  elements.quiz.sentenceJp.textContent = jp;
+  // elements.quiz.audio.src = PATHS.assets.audio.eng + audio;
 }
 
 const newQuestion = () => {
@@ -197,7 +213,7 @@ const changeQuestionIndex = (newIndex) => {
 // Event listeners
 document.addEventListener('DOMContentLoaded', init);
 
-elements.menu.startReviewBtn.addEventListener('click', () => {
+elements.menu.startQuizBtn.addEventListener('click', () => {
   vocabList = buildQuizVocabList();
 
   if (!vocabList.length) {
@@ -206,22 +222,22 @@ elements.menu.startReviewBtn.addEventListener('click', () => {
   }
 
   elements.interfaces.selectVocab.classList.add('hidden');
-  elements.interfaces.review.classList.remove('hidden');
+  elements.interfaces.quiz.classList.remove('hidden');
 
   newQuestion();
 });
 
-elements.review.cardControls.nextCard.addEventListener('click', () => {
+elements.quiz.cardControls.nextCard.addEventListener('click', () => {
   changeQuestionIndex(currentIndex + 1);
   newQuestion();
 });
 
-elements.review.cardControls.prevCard.addEventListener('click', () => {
+elements.quiz.cardControls.prevCard.addEventListener('click', () => {
   changeQuestionIndex(currentIndex - 1);
   newQuestion();
 });
 
-elements.review.cardControls.shuffleCards.addEventListener('click', () => {
+elements.quiz.cardControls.shuffleCards.addEventListener('click', () => {
   vocabList = shuffleArray(vocabList);
   changeQuestionIndex(0);
   newQuestion();

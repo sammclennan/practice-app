@@ -1,3 +1,11 @@
 .hidden {
     display: none !important;
 }
+
+.sentenceEl {
+    cursor: pointer;
+}
+
+.isClozed {
+    border-bottom: 1px solid black;
+}
