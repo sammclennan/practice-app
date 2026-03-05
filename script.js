@@ -27,10 +27,11 @@ const elements = {
     sentenceEng: document.querySelector('#sentence-eng'),
     sentenceJp: document.querySelector('#sentence-jp'),
     audio: document.querySelector('#eng-audio'),
-    toggleEdit: document.querySelector('#toggle-edit'),
     questionControls: {
       prevQuestion: document.querySelector('#prev-question'),
       shuffleQuestions: document.querySelector('#shuffle-questions'),
+      toggleEdit: document.querySelector('#toggle-edit'),
+      showAnswer: document.querySelector('#show-answer'),
       nextQuestion: document.querySelector('#next-question'),
     }
   },
@@ -302,17 +303,6 @@ elements.menu.startQuizBtn.addEventListener('click', () => {
   newQuestion();
 });
 
-elements.quiz.toggleEdit.addEventListener('change', (e) => {
-  isEditable = e.target.checked;
-  elements.quiz.sentenceJp.setAttribute('contenteditable', isEditable);
-  document.querySelectorAll('.word-eng').forEach((div, i) => {
-    div.setAttribute('contenteditable', isEditable);
-    if (i === 0) {
-      setEditableCaratPos(div);
-    }
-  });
-});
-
 elements.quiz.questionControls.nextQuestion.addEventListener('click', () => {
   changeQuestionIndex(currentIndex + 1);
   // newQuestion();
@@ -327,6 +317,23 @@ elements.quiz.questionControls.shuffleQuestions.addEventListener('click', () => 
   vocabList = shuffleArray(vocabList);
   changeQuestionIndex(0);
   // newQuestion();
+});
+
+elements.quiz.questionControls.toggleEdit.addEventListener('change', (e) => {
+  isEditable = e.target.checked;
+  elements.quiz.sentenceJp.setAttribute('contenteditable', isEditable);
+  document.querySelectorAll('.word-eng').forEach((div, i) => {
+    div.setAttribute('contenteditable', isEditable);
+    if (i === 0) {
+      setEditableCaratPos(div);
+    }
+  });
+});
+
+elements.quiz.questionControls.showAnswer.addEventListener('click', () => {
+  document.querySelectorAll('.word-eng').forEach(div => {
+    div.classList.remove('is-clozed');
+  }); 
 });
 
 elements.quiz.sentenceEng.addEventListener('click', (e) => {
