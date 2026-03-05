@@ -2,10 +2,18 @@
     display: none !important;
 }
 
-.sentenceEl {
+.word-eng {
     cursor: pointer;
 }
 
-.isClozed {
-    border-bottom: 1px solid black;
+.sentence-eng {
+    display: flex;
+    flex-direction: row;
+    font-size: 3rem;
+    gap: 1rem;
+    padding: 1rem;
+}
+
+.is-clozed {
+    border-bottom: 3px solid black;
 }

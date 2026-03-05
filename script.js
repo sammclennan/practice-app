@@ -75,15 +75,15 @@ const capitalize = (str) => {
 const fillVocabSelectMenu = (index) => {
   const htmlArr = [];
   for (const [level, categories] of Object.entries(index)) {
-    htmlArr.push(`<li class="levelList">`);
-    htmlArr.push(`<label><input class="vocabCheckbox" type="checkbox" data-type="level" data-level="${level}">Level ${level}</label>`);
+    htmlArr.push(`<li class="level-list">`);
+    htmlArr.push(`<label><input class="vocab-checkbox" type="checkbox" data-type="level" data-level="${level}">Level ${level}</label>`);
     htmlArr.push('<ul>');
     for (const [category, vocabList] of Object.entries(categories)) {
-      htmlArr.push('<li class="categorySublist">');
-      htmlArr.push(`<label><input class="vocabCheckbox" type="checkbox" data-type="category" data-level="${level}" data-category="${category}">${capitalize(category)}</label>`)
+      htmlArr.push('<li class="category-sublist">');
+      htmlArr.push(`<label><input class="vocab-checkbox" type="checkbox" data-type="category" data-level="${level}" data-category="${category}">${capitalize(category)}</label>`)
       htmlArr.push('<ul>');
       for (const item of vocabList) {
-        htmlArr.push(`<li><label><input class="vocabCheckbox" type="checkbox" value="${item}" data-type="item" data-level="${level}" data-category="${category}">${lookup[item].eng}</label></li>`);
+        htmlArr.push(`<li><label><input class="vocab-checkbox" type="checkbox" value="${item}" data-type="item" data-level="${level}" data-category="${category}">${lookup[item].eng}</label></li>`);
       }
       htmlArr.push('</ul>');
     }
@@ -91,6 +91,13 @@ const fillVocabSelectMenu = (index) => {
   }
 
   elements.menu.vocabList.innerHTML = htmlArr.join('');
+}
+
+const autoStart = () => {
+  document.querySelectorAll('.vocab-checkbox').forEach(cb => {
+    cb.checked = true;
+  });
+  elements.menu.startQuizBtn.click();
 }
 
 const init = async () => {
@@ -107,6 +114,8 @@ const init = async () => {
 
   buildIndexAndLookup(vocabData, lookup, index);
   fillVocabSelectMenu(index);
+
+  autoStart();
 }
 
 const updateParentCheckbox = (checkbox) => {
@@ -114,7 +123,7 @@ const updateParentCheckbox = (checkbox) => {
   const level = checkbox.dataset.level;
   const category = checkbox.dataset.category;
 
-  let selector = `.vocabCheckbox[data-type="${type}"][data-level="${level}"]`;
+  let selector = `.vocab-checkbox[data-type="${type}"][data-level="${level}"]`;
   if (type === 'item') {
     selector += `[data-category="${category}"]`;
   }
@@ -133,7 +142,7 @@ const updateParentCheckbox = (checkbox) => {
     checkbox.closest('li')
       ?.parentElement
       ?.closest('li')
-      ?.querySelector('.vocabCheckbox');
+      ?.querySelector('.vocab-checkbox');
         
   if (!parentCheckbox) return;
 
@@ -157,7 +166,7 @@ const buildQuizVocabList = () => {
   const res = [];
   const byLevel = {};
 
-  elements.menu.vocabList.querySelectorAll('.vocabCheckbox[data-type="item"]:checked').forEach(checkbox => {
+  elements.menu.vocabList.querySelectorAll('.vocab-checkbox[data-type="item"]:checked').forEach(checkbox => {
     const id = checkbox.value;
     const level = checkbox.dataset.level;
     (byLevel[level] ??= []).push(id);
@@ -183,17 +192,14 @@ const clozeSentence = (text) => {
   const htmlArr = [];
 
   splitText.forEach(word => {
-    htmlArr.push(`<div class="sentenceEl isClozed">${word}</div>`);
+    htmlArr.push(`<div class="word-eng is-clozed">${word}</div>`);
   });
 
   return htmlArr.join('');
-
 }
 
 const renderQuestion = ({ eng, jp, audio }) => {
   elements.quiz.sentenceEng.innerHTML = clozeSentence(eng);
-  return;
-  elements.quiz.sentenceEng.textContent = eng;
   elements.quiz.sentenceJp.textContent = jp;
   // elements.quiz.audio.src = PATHS.assets.audio.eng + audio;
 }
@@ -244,13 +250,13 @@ elements.quiz.cardControls.shuffleCards.addEventListener('click', () => {
 });
 
 elements.menu.vocabList.addEventListener('change', (e) => {
-  if (e.target.matches('.vocabCheckbox')) {
+  if (e.target.matches('.vocab-checkbox')) {
     const checkbox = e.target;
 
     const descendents =
       checkbox.closest('li')
         .querySelector('ul')
-        ?.querySelectorAll('.vocabCheckbox');
+        ?.querySelectorAll('.vocab-checkbox');
 
     descendents?.forEach(cb => {
       cb.indeterminate = false;
