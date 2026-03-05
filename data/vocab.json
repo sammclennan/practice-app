@@ -1,21 +1,5 @@
 [
   {
-    "id": "my_name_is_tanaka",
-    "level": 1,
-    "eng": "My name is Tanaka",
-    "jp": "私は田中です",
-    "audio": "",
-    "category": "introduction"
-  },
-  {
-    "id": "my_name_is_maria",
-    "level": 1,
-    "eng": "My name is Maria",
-    "jp": "私はマリアです",
-    "audio": "my_name_is_maria.mp3",
-    "category": "introduction"
-  },
-  {
     "id": "nice_to_meet_you",
     "level": 1,
     "eng": "Nice to meet you",
