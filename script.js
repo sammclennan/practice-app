@@ -187,23 +187,6 @@ const getCurrentQuestion = (lookup, vocabList, currentIndex) => {
   return lookup[cardID];
 }
 
-const removeIfEmpty = (e) => {
-  console.log(e);
-}
-
-// const clozeSentence = (text) => {
-//   const splitText = text.split(' ');
-//   console.log(splitText);
-
-//   const htmlArr = [];
-
-//   splitText.forEach(word => {
-//     htmlArr.push(`<div class="word-eng is-clozed" onfocusout="removeIfEmpty(self)">${word}</div>`);
-//   });
-
-//   return htmlArr.join('');
-// }
-
 const clozeSentence = (text) => {
   const splitText = text.split(' ');
   console.log(splitText);
@@ -299,6 +282,14 @@ elements.quiz.cardControls.shuffleCards.addEventListener('click', () => {
 
 elements.quiz.toggleEdit.addEventListener('change', (e) => {
   isEditable = e.target.checked;
+  elements.quiz.sentenceJp.setAttribute('contenteditable', isEditable);
+  document.querySelectorAll('.word-eng').forEach((div, i) => {
+    div.setAttribute('contenteditable', isEditable);
+    if (i === 0) {
+      setEditableCaratPos(div);
+    }
+  });
+  
 });
 
 elements.menu.vocabList.addEventListener('change', (e) => {
@@ -323,9 +314,9 @@ elements.quiz.sentenceEng.addEventListener('click', (e) => {
   if (e.target.matches('.word-eng')) {
     const wordDiv = e.target;
 
-    // wordDiv.classList.toggle('is-clozed');
-    // wordDiv.classList.remove('is-clozed');
-    wordDiv.setAttribute('contenteditable', 'true');
+    if (!isEditable) {
+      wordDiv.classList.toggle('is-clozed');
+    }
   }
 });
 
@@ -339,23 +330,18 @@ document.addEventListener('keydown', (e) => {
       e.preventDefault();
       const newDiv = document.createElement('div');
       newDiv.classList.add('word-eng');
+      newDiv.classList.add('is-clozed');
       newDiv.setAttribute('contenteditable', 'true');
 
       activeEl.after(newDiv);
       newDiv.focus();
-
     }
     
     if (e.key === 'Backspace') {
       const l = activeEl.textContent.length
 
-      if (l <= 0) {
+      if (l <= 0 && prevEl) {
         e.preventDefault();
-        const siblings = activeEl.parentElement.children;
-        if (siblings.length <= 1) {
-          return;
-        }
-
         setEditableCaratPos(prevEl);
       }
     }
