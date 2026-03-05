@@ -30,6 +30,7 @@ const elements = {
     cardControls: {
       prevCard: document.querySelector('#prev-card'),
       shuffleCards: document.querySelector('#shuffle-cards'),
+      toggleEdit: document.querySelector('#toggle-edit'),
       nextCard: document.querySelector('#next-card'),
     }
   },
@@ -211,11 +212,18 @@ const clozeSentence = (text) => {
     wordDiv.classList.add('word-eng');
     wordDiv.classList.add('is-clozed');
     wordDiv.textContent = word;
+
     wordDiv.addEventListener('focusout', () => {
       if (wordDiv.textContent.trim() === '') {
-        wordDiv.remove();
+        const siblings = wordDiv.parentElement.children;
+        if (siblings.length <= 1) {
+          wordDiv.onblur = wordDiv.focus();
+        } else {
+          wordDiv.remove();
+        }
       }
     });
+
     elements.quiz.sentenceEng.appendChild(wordDiv);
   });
 }
@@ -318,11 +326,8 @@ elements.quiz.sentenceEng.addEventListener('click', (e) => {
 document.addEventListener('keydown', (e) => {
   const activeEl = document.activeElement;
   if (activeEl.matches('.word-eng')) {
-    function focusCursorOnInput(input) {
-      input.focus();
-      const l = input.textContent.length;
-      input.setSelectionRange(l, l);
-    }
+    const prevEl = activeEl.previousElementSibling;
+    const nextEl = activeEl.nextElementSibling;
 
     if (e.key === 'Enter' || e.key === ' ') {
       e.preventDefault();
@@ -333,16 +338,18 @@ document.addEventListener('keydown', (e) => {
       activeEl.after(newDiv);
       newDiv.focus();
 
-    } else if (e.key === 'Backspace') {
+    }
+    
+    if (e.key === 'Backspace') {
       const l = activeEl.textContent.length
+
       if (l <= 0) {
         e.preventDefault();
         const siblings = activeEl.parentElement.children;
-        console.log(siblings.length);
         if (siblings.length <= 1) {
           return;
         }
-        const prevEl = activeEl.previousElementSibling;
+
         setEditableCaratPos(prevEl);
       }
     }
