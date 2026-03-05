@@ -199,16 +199,16 @@ const createClozeSentence = (text) => {
     wordDiv.classList.add('is-clozed');
     wordDiv.textContent = word;
 
-    wordDiv.addEventListener('focusout', () => {
-      if (wordDiv.textContent.trim() === '') {
-        const siblings = wordDiv.parentElement.children;
-        if (siblings.length <= 1) {
-          wordDiv.onblur = wordDiv.focus();
-        } else {
-          wordDiv.remove();
-        }
-      }
-    });
+    // wordDiv.addEventListener('focusout', () => {
+    //   if (wordDiv.textContent.trim() === '') {
+    //     const siblings = wordDiv.parentElement.children;
+    //     if (siblings.length <= 1) {
+    //       wordDiv.onblur = wordDiv.focus();
+    //     } else {
+    //       wordDiv.remove();
+    //     }
+    //   }
+    // });
 
     elements.quiz.sentenceEng.appendChild(wordDiv);
   });
@@ -249,24 +249,24 @@ const changeQuestionIndex = (newIndex) => {
 //   element.focus();
 // }
 
-const setEditableCaratPos = (element) => {
-  const selection = window.getSelection();
-  selection.removeAllRanges();
+// const setEditableCaratPos = (element) => {
+//   const selection = window.getSelection();
+//   selection.removeAllRanges();
 
-  const range = document.createRange();
-  const node = element.firstChild;
+//   const range = document.createRange();
+//   const node = element.firstChild;
 
-  if (!node || node.nodeType !== Node.TEXT_NODE) {
-    range.setStart(node, element.firstChild.length);
-    range.setEnd(node, element.firstChild.length);
-  } else {
-    range.selectNodeContents(element);
-    range.collapse(false);
-  }
+//   if (!node || node.nodeType !== Node.TEXT_NODE) {
+//     range.setStart(node, element.firstChild.length);
+//     range.setEnd(node, element.firstChild.length);
+//   } else {
+//     range.selectNodeContents(element);
+//     range.collapse(false);
+//   }
 
-  selection.addRange(range);
-  element.focus();
-}
+//   selection.addRange(range);
+//   element.focus();
+// }
 
 // Event listeners
 document.addEventListener('DOMContentLoaded', init);
@@ -321,13 +321,14 @@ elements.quiz.questionControls.shuffleQuestions.addEventListener('click', () => 
 
 elements.quiz.questionControls.toggleEdit.addEventListener('change', (e) => {
   isEditable = e.target.checked;
-  elements.quiz.sentenceJp.setAttribute('contenteditable', isEditable);
-  document.querySelectorAll('.word-eng').forEach((div, i) => {
-    div.setAttribute('contenteditable', isEditable);
-    if (i === 0) {
-      setEditableCaratPos(div);
-    }
-  });
+  if (isEditable) {
+    elements.quiz.sentenceJp.setAttribute('contenteditable', true);
+    elements.quiz.sentenceEng.textContent = currentQuestion.eng; 
+    elements.quiz.sentenceEng.setAttribute('contenteditable', true);
+  } else {
+    createClozeSentence(currentQuestion.eng);
+    elements.quiz.sentenceJp.setAttribute('contenteditable', false);
+  }
 });
 
 elements.quiz.questionControls.showAnswer.addEventListener('click', () => {
@@ -346,43 +347,43 @@ elements.quiz.sentenceEng.addEventListener('click', (e) => {
   }
 });
 
-document.addEventListener('keydown', (e) => {
-  const activeEl = document.activeElement;
-  if (activeEl.matches('.word-eng')) {
-    const prevEl = activeEl.previousElementSibling;
-    const nextEl = activeEl.nextElementSibling;
+// document.addEventListener('keydown', (e) => {
+//   const activeEl = document.activeElement;
+//   if (activeEl.matches('.word-eng')) {
+//     const prevEl = activeEl.previousElementSibling;
+//     const nextEl = activeEl.nextElementSibling;
 
-    if (e.key === 'Enter' || e.key === ' ') {
-      e.preventDefault();
-      const newDiv = document.createElement('div');
-      newDiv.classList.add('word-eng');
-      if (!isEditable) {
-        newDiv.classList.add('is-clozed');
-      }
-      newDiv.setAttribute('contenteditable', 'true');
+//     if (e.key === 'Enter' || e.key === ' ') {
+//       e.preventDefault();
+//       const newDiv = document.createElement('div');
+//       newDiv.classList.add('word-eng');
+//       if (!isEditable) {
+//         newDiv.classList.add('is-clozed');
+//       }
+//       newDiv.setAttribute('contenteditable', 'true');
 
-      newDiv.addEventListener('focusout', () => { // TODO: Duplicate
-        if (newDiv.textContent.trim() === '') {
-          const siblings = newDiv.parentElement.children;
-          if (siblings.length <= 1) {
-            newDiv.onblur = newDiv.focus();
-          } else {
-            newDiv.remove();
-          }
-        }
-      });
+//       newDiv.addEventListener('focusout', () => { // TODO: Duplicate
+//         if (newDiv.textContent.trim() === '') {
+//           const siblings = newDiv.parentElement.children;
+//           if (siblings.length <= 1) {
+//             newDiv.onblur = newDiv.focus();
+//           } else {
+//             newDiv.remove();
+//           }
+//         }
+//       });
 
-      activeEl.after(newDiv);
-      newDiv.focus();
-    }
+//       activeEl.after(newDiv);
+//       newDiv.focus();
+//     }
     
-    if (e.key === 'Backspace') {
-      const l = activeEl.textContent.length
+//     if (e.key === 'Backspace') {
+//       const l = activeEl.textContent.length
 
-      if (l <= 0 && prevEl) {
-        e.preventDefault();
-        setEditableCaratPos(prevEl);
-      }
-    }
-  };
-});
+//       if (l <= 0 && prevEl) {
+//         e.preventDefault();
+//         setEditableCaratPos(prevEl);
+//       }
+//     }
+//   };
+// });

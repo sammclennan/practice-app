@@ -1,9 +1,9 @@
 :root {
-    --sky-blue-btn: rgb(28, 176, 246);
-    --sky-blue-btn-shadow: rgb(24 153 214);
     --font-family-eng: 'Fredoka', sans-serif;
     --font-family-jp: 'Kosugi Maru', sans-serif;
     --lilac-btn: rgb(206, 130, 255);
+    --sky-blue-btn: rgb(28, 176, 246);
+    --sky-blue-btn-shadow: rgb(24 153 214);
 }
 
 * {
@@ -33,8 +33,8 @@ button {
     align-items: center;
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
-    margin: 1rem;
+    gap: 2.5rem;
+    margin: 1rem 0;
 }
 
 .question-nav-btn,
@@ -72,15 +72,15 @@ button {
     flex-direction: column;
     height: 100vh;
     justify-content: space-between;
-    padding: 3rem;
+    padding: 3rem 1rem;
+    text-align: center;
 }
 
 .sentence-eng {
     display: flex;
     flex-direction: row;
     font-size: 5rem;
-    gap: 1rem;
-    padding: 1rem;
+    gap: 1.19rem;
 }
 
 .sentence-jp {
@@ -95,7 +95,6 @@ button {
 
 .word-eng {
     cursor: pointer;
-    line-height: 0.75;
     height: 1lh;
     box-sizing: border-box;
 }
