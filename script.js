@@ -203,17 +203,23 @@ const createClozeSentence = (text) => {
   return fragment;
 }
 
-const renderQuestion = ({ eng, jp, audio }) => {
-  elements.quiz.sentenceEng.innerHTML = '';
-  elements.quiz.sentenceEng.appendChild(createClozeSentence(eng));
+const renderQuestion = ({ eng, jp, audio }, { editable = false } = {}) => {
   elements.quiz.sentenceJp.textContent = jp;
-  // elements.quiz.audio.src = PATHS.assets.audio.eng + audio;
+
+  if (editable) {
+    elements.quiz.sentenceEng.textContent = eng;
+  } else {
+    elements.quiz.sentenceEng.replaceChildren(createClozeSentence(eng));
+  }
+
+  elements.quiz.sentenceEng.setAttribute('contenteditable', editable);
+  elements.quiz.sentenceJp.setAttribute('contenteditable', editable);
 }
 
 const newQuestion = () => {
   currentQuestion = getCurrentQuestion(lookup, vocabList, currentIndex);
-  console.log(currentQuestion);
   renderQuestion(currentQuestion);
+  
   elements.quiz.questionControls.toggleEdit.checked = false;
   elements.quiz.questionControls.toggleEdit.dispatchEvent(new Event('change', { bubbles: true }));}
 
@@ -277,16 +283,7 @@ elements.quiz.questionControls.shuffleQuestions.addEventListener('click', () => 
 
 elements.quiz.questionControls.toggleEdit.addEventListener('change', (e) => {
   isEditable = e.target.checked;
-  if (isEditable) {
-    elements.quiz.sentenceEng.textContent = currentQuestion.eng; 
-    elements.quiz.sentenceJp.setAttribute('contenteditable', true);
-    elements.quiz.sentenceEng.setAttribute('contenteditable', true);
-  } else {
-    elements.quiz.sentenceEng.innerHTML = '';
-    elements.quiz.sentenceEng.appendChild(createClozeSentence(currentQuestion.eng));
-    elements.quiz.sentenceEng.setAttribute('contenteditable', false);
-    elements.quiz.sentenceJp.setAttribute('contenteditable', false);
-  }
+  renderQuestion(currentQuestion, { editable: isEditable });
 });
 
 elements.quiz.questionControls.showAnswer.addEventListener('click', () => {
