@@ -189,22 +189,23 @@ const getCurrentQuestion = (lookup, vocabList, currentIndex) => {
 }
 
 const createClozeSentence = (text) => {
-  elements.quiz.sentenceEng.innerHTML = '';
-
+  const fragment = document.createDocumentFragment();
   const splitText = text.split(' ');
 
   splitText.forEach(word => {
     const wordDiv = document.createElement('div');
-    wordDiv.classList.add('word-eng');
-    wordDiv.classList.add('is-clozed');
+    wordDiv.classList.add('word-eng', 'is-clozed');
     wordDiv.textContent = word;
 
-    elements.quiz.sentenceEng.appendChild(wordDiv);
+    fragment.appendChild(wordDiv);
   });
+
+  return fragment;
 }
 
 const renderQuestion = ({ eng, jp, audio }) => {
-  createClozeSentence(eng);
+  elements.quiz.sentenceEng.innerHTML = '';
+  elements.quiz.sentenceEng.appendChild(createClozeSentence(eng));
   elements.quiz.sentenceJp.textContent = jp;
   // elements.quiz.audio.src = PATHS.assets.audio.eng + audio;
 }
@@ -281,7 +282,8 @@ elements.quiz.questionControls.toggleEdit.addEventListener('change', (e) => {
     elements.quiz.sentenceJp.setAttribute('contenteditable', true);
     elements.quiz.sentenceEng.setAttribute('contenteditable', true);
   } else {
-    createClozeSentence(currentQuestion.eng);
+    elements.quiz.sentenceEng.innerHTML = '';
+    elements.quiz.sentenceEng.appendChild(createClozeSentence(currentQuestion.eng));
     elements.quiz.sentenceEng.setAttribute('contenteditable', false);
     elements.quiz.sentenceJp.setAttribute('contenteditable', false);
   }
