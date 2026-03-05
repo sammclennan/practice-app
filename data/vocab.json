@@ -1,19 +1,27 @@
 [
   {
+    "id": "hello",
+    "level": 1,
+    "eng": "Hello",
+    "jp": "こんにちは",
+    "audio": "hello.mp3",
+    "category": "introduction"
+  },
+  {
+    "id": "my_name_is_maria",
+    "level": 1,
+    "eng": "My name is Maria",
+    "jp": "私はマリアです",
+    "audio": "my_name_is_maria.mp3",
+    "category": "introduction"
+  },
+  {
     "id": "nice_to_meet_you",
     "level": 1,
     "eng": "Nice to meet you",
     "jp": "初めまして",
     "audio": "nice_to_meet_you.mp3",
     "category": "introduction"
-  },
-  {
-    "id": "cool",
-    "level": 1,
-    "eng": "Cool!",
-    "jp": "いいね！",
-    "audio": "cool.mp3",
-    "category": "expressions"
   },
   {
     "id": "i_am_a_student",
@@ -23,4 +31,5 @@
     "audio": "i_am_a_student.mp3",
     "category": "introduction"
   }
+
 ]

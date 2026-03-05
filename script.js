@@ -118,7 +118,7 @@ const init = async () => {
   buildIndexAndLookup(vocabData, lookup, index);
   fillVocabSelectMenu(index);
 
-  autoStart();
+  // autoStart();
 }
 
 const updateParentCheckbox = (checkbox) => {
@@ -219,7 +219,7 @@ const renderQuestion = ({ eng, jp, audio }, { editable = false } = {}) => {
 const newQuestion = () => {
   currentQuestion = getCurrentQuestion(lookup, vocabList, currentIndex);
   renderQuestion(currentQuestion);
-  
+
   elements.quiz.questionControls.toggleEdit.checked = false;
   elements.quiz.questionControls.toggleEdit.dispatchEvent(new Event('change', { bubbles: true }));}
 
