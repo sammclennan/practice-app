@@ -349,8 +349,21 @@ document.addEventListener('keydown', (e) => {
       e.preventDefault();
       const newDiv = document.createElement('div');
       newDiv.classList.add('word-eng');
-      newDiv.classList.add('is-clozed');
+      if (!isEditable) {
+        newDiv.classList.add('is-clozed');
+      }
       newDiv.setAttribute('contenteditable', 'true');
+
+      newDiv.addEventListener('focusout', () => { // TODO: Duplicate
+        if (newDiv.textContent.trim() === '') {
+          const siblings = newDiv.parentElement.children;
+          if (siblings.length <= 1) {
+            newDiv.onblur = newDiv.focus();
+          } else {
+            newDiv.remove();
+          }
+        }
+      });
 
       activeEl.after(newDiv);
       newDiv.focus();
