@@ -28,10 +28,10 @@ const elements = {
     sentenceJp: document.querySelector('#sentence-jp'),
     audio: document.querySelector('#eng-audio'),
     toggleEdit: document.querySelector('#toggle-edit'),
-    cardControls: {
-      prevCard: document.querySelector('#prev-card'),
-      shuffleCards: document.querySelector('#shuffle-cards'),
-      nextCard: document.querySelector('#next-card'),
+    questionControls: {
+      prevQuestion: document.querySelector('#prev-question'),
+      shuffleQuestions: document.querySelector('#shuffle-questions'),
+      nextQuestion: document.querySelector('#next-question'),
     }
   },
 }
@@ -183,8 +183,8 @@ const buildQuizVocabList = () => {
 }
 
 const getCurrentQuestion = (lookup, vocabList, currentIndex) => {
-  const cardID = vocabList[currentIndex];
-  return lookup[cardID];
+  const questionID = vocabList[currentIndex];
+  return lookup[questionID];
 }
 
 const createClozeSentence = (text) => {
@@ -313,17 +313,17 @@ elements.quiz.toggleEdit.addEventListener('change', (e) => {
   });
 });
 
-elements.quiz.cardControls.nextCard.addEventListener('click', () => {
+elements.quiz.questionControls.nextQuestion.addEventListener('click', () => {
   changeQuestionIndex(currentIndex + 1);
   // newQuestion();
 });
 
-elements.quiz.cardControls.prevCard.addEventListener('click', () => {
+elements.quiz.questionControls.prevQuestion.addEventListener('click', () => {
   changeQuestionIndex(currentIndex - 1);
   // newQuestion();
 });
 
-elements.quiz.cardControls.shuffleCards.addEventListener('click', () => {
+elements.quiz.questionControls.shuffleQuestions.addEventListener('click', () => {
   vocabList = shuffleArray(vocabList);
   changeQuestionIndex(0);
   // newQuestion();
