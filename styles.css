@@ -1,7 +1,16 @@
+:root {
+    --font-family-eng: 'Fredoka', sans-serif;
+    --font-family-jp: 'Kosugi Maru', sans-serif;
+}
+
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+}
+
+body {
+    font-family: var(--font-family-eng);
 }
 
 button {
@@ -47,11 +56,16 @@ button {
 .sentence-eng {
     display: flex;
     flex-direction: row;
-    font-size: 3rem;
+    font-size: 5rem;
     gap: 1rem;
     padding: 1rem;
 }
 
+.sentence-jp {
+    font-family: var(--font-family-jp);
+    font-size: 3rem;
+    width: fit-content
+}
 
 .word-eng {
     cursor: pointer;
