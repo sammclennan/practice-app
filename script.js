@@ -40,7 +40,7 @@ let lookup = {};
 let index = {};
 let vocabList;
 let currentIndex = 0;
-let currentCard;
+let currentQuestion;
 
 // Function declarations
 const loadJSON = async (filename, directory) => {
@@ -171,15 +171,27 @@ const buildQuizVocabList = () => {
   return res.flat();
 }
 
-const getCurrentReview = (lookup, vocabList, currentIndex) => {
+const getCurrentQuestion = (lookup, vocabList, currentIndex) => {
   const cardID = vocabList[currentIndex];
   return lookup[cardID];
 }
 
-const renderReview = ({ eng, jp, audio }) => {
+const renderQuestion = ({ eng, jp, audio }) => {
   elements.review.sentenceEng.innerHTML = eng;
   elements.review.sentenceJp.textContent = jp;
-  elements.review.audio.src = PATHS.assets.audio.eng + audio;
+  // elements.review.audio.src = PATHS.assets.audio.eng + audio;
+}
+
+const newQuestion = () => {
+  currentQuestion = getCurrentQuestion(lookup, vocabList, currentIndex);
+  console.log(currentQuestion);
+  renderQuestion(currentQuestion);
+}
+
+const changeQuestionIndex = (newIndex) => {
+  if (newIndex < 0 || newIndex >= vocabList.length) return;
+
+  currentIndex = newIndex;
 }
 
 // Event listeners
@@ -196,8 +208,17 @@ elements.menu.startReviewBtn.addEventListener('click', () => {
   elements.interfaces.selectVocab.classList.add('hidden');
   elements.interfaces.review.classList.remove('hidden');
 
-  currentCard = getCurrentReview(lookup, vocabList, currentIndex);
-  renderReview(currentCard);
+  newQuestion();
+});
+
+elements.review.cardControls.nextCard.addEventListener('click', () => {
+  changeQuestionIndex(currentIndex + 1);
+  newQuestion();
+});
+
+elements.review.cardControls.prevCard.addEventListener('click', () => {
+  changeQuestionIndex(currentIndex - 1);
+  newQuestion();
 });
 
 elements.menu.vocabList.addEventListener('change', (e) => {
