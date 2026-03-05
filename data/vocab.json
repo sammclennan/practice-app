@@ -1,0 +1,10 @@
+[
+    {
+      "id": "i_am_a_student",
+      "level": 1,
+      "eng": "I am a student",
+      "jp": "私は学生です",
+      "audio": "i_am_a_student.mp3",
+      "category": "introduction"
+    }
+  ]

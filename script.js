@@ -187,9 +187,10 @@ const getCurrentQuestion = (lookup, vocabList, currentIndex) => {
   return lookup[cardID];
 }
 
-const clozeSentence = (text) => {
+const createClozeSentence = (text) => {
+  elements.quiz.sentenceEng.innerHTML = '';
+
   const splitText = text.split(' ');
-  console.log(splitText);
 
   splitText.forEach(word => {
     const wordDiv = document.createElement('div');
@@ -213,7 +214,7 @@ const clozeSentence = (text) => {
 }
 
 const renderQuestion = ({ eng, jp, audio }) => {
-  clozeSentence(eng);
+  createClozeSentence(eng);
   elements.quiz.sentenceJp.textContent = jp;
   // elements.quiz.audio.src = PATHS.assets.audio.eng + audio;
 }
@@ -269,48 +270,6 @@ const setEditableCaratPos = (element) => {
 // Event listeners
 document.addEventListener('DOMContentLoaded', init);
 
-elements.menu.startQuizBtn.addEventListener('click', () => {
-  vocabList = buildQuizVocabList();
-
-  if (!vocabList.length) {
-    alert('Please select some data!');
-    return;
-  }
-
-  elements.interfaces.selectVocab.classList.add('hidden');
-  elements.interfaces.quiz.classList.remove('hidden');
-
-  newQuestion();
-});
-
-elements.quiz.cardControls.nextCard.addEventListener('click', () => {
-  changeQuestionIndex(currentIndex + 1);
-  // newQuestion();
-});
-
-elements.quiz.cardControls.prevCard.addEventListener('click', () => {
-  changeQuestionIndex(currentIndex - 1);
-  // newQuestion();
-});
-
-elements.quiz.cardControls.shuffleCards.addEventListener('click', () => {
-  vocabList = shuffleArray(vocabList);
-  changeQuestionIndex(0);
-  // newQuestion();
-});
-
-elements.quiz.toggleEdit.addEventListener('change', (e) => {
-  isEditable = e.target.checked;
-  elements.quiz.sentenceJp.setAttribute('contenteditable', isEditable);
-  document.querySelectorAll('.word-eng').forEach((div, i) => {
-    div.setAttribute('contenteditable', isEditable);
-    if (i === 0) {
-      setEditableCaratPos(div);
-    }
-  });
-  
-});
-
 elements.menu.vocabList.addEventListener('change', (e) => {
   if (e.target.matches('.vocab-checkbox')) {
     const checkbox = e.target;
@@ -327,6 +286,47 @@ elements.menu.vocabList.addEventListener('change', (e) => {
     
     updateParentCheckbox(checkbox);
   }
+});
+
+elements.menu.startQuizBtn.addEventListener('click', () => {
+  vocabList = buildQuizVocabList();
+
+  if (!vocabList.length) {
+    alert('Please select some data!');
+    return;
+  }
+
+  elements.interfaces.selectVocab.classList.add('hidden');
+  elements.interfaces.quiz.classList.remove('hidden');
+
+  newQuestion();
+});
+
+elements.quiz.toggleEdit.addEventListener('change', (e) => {
+  isEditable = e.target.checked;
+  elements.quiz.sentenceJp.setAttribute('contenteditable', isEditable);
+  document.querySelectorAll('.word-eng').forEach((div, i) => {
+    div.setAttribute('contenteditable', isEditable);
+    if (i === 0) {
+      setEditableCaratPos(div);
+    }
+  });
+});
+
+elements.quiz.cardControls.nextCard.addEventListener('click', () => {
+  changeQuestionIndex(currentIndex + 1);
+  // newQuestion();
+});
+
+elements.quiz.cardControls.prevCard.addEventListener('click', () => {
+  changeQuestionIndex(currentIndex - 1);
+  // newQuestion();
+});
+
+elements.quiz.cardControls.shuffleCards.addEventListener('click', () => {
+  vocabList = shuffleArray(vocabList);
+  changeQuestionIndex(0);
+  // newQuestion();
 });
 
 elements.quiz.sentenceEng.addEventListener('click', (e) => {
