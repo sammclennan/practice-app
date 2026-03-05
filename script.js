@@ -214,6 +214,7 @@ const changeQuestionIndex = (newIndex) => {
   if (newIndex < 0 || newIndex >= vocabList.length) return;
 
   currentIndex = newIndex;
+  newQuestion();
 }
 
 // Event listeners
@@ -235,18 +236,18 @@ elements.menu.startQuizBtn.addEventListener('click', () => {
 
 elements.quiz.cardControls.nextCard.addEventListener('click', () => {
   changeQuestionIndex(currentIndex + 1);
-  newQuestion();
+  // newQuestion();
 });
 
 elements.quiz.cardControls.prevCard.addEventListener('click', () => {
   changeQuestionIndex(currentIndex - 1);
-  newQuestion();
+  // newQuestion();
 });
 
 elements.quiz.cardControls.shuffleCards.addEventListener('click', () => {
   vocabList = shuffleArray(vocabList);
   changeQuestionIndex(0);
-  newQuestion();
+  // newQuestion();
 });
 
 elements.menu.vocabList.addEventListener('change', (e) => {
@@ -264,6 +265,14 @@ elements.menu.vocabList.addEventListener('change', (e) => {
     });
     
     updateParentCheckbox(checkbox);
+  }
+});
+
+elements.quiz.sentenceEng.addEventListener('click', (e) => {
+  if (e.target.matches('.word-eng')) {
+    const wordDiv = e.target;
+
+    wordDiv.classList.toggle('is-clozed');
   }
 });
 

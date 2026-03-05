@@ -1,9 +1,16 @@
+button {
+    cursor: pointer;
+}
+
 .hidden {
     display: none !important;
 }
 
 .word-eng {
     cursor: pointer;
+    line-height: 0.75;
+    height: 1lh;
+    box-sizing: border-box;
 }
 
 .sentence-eng {
@@ -16,4 +23,5 @@
 
 .is-clozed {
     border-bottom: 3px solid black;
+    color: transparent;
 }
