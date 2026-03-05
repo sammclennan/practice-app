@@ -27,10 +27,10 @@ const elements = {
     sentenceEng: document.querySelector('#sentence-eng'),
     sentenceJp: document.querySelector('#sentence-jp'),
     audio: document.querySelector('#eng-audio'),
+    toggleEdit: document.querySelector('#toggle-edit'),
     cardControls: {
       prevCard: document.querySelector('#prev-card'),
       shuffleCards: document.querySelector('#shuffle-cards'),
-      toggleEdit: document.querySelector('#toggle-edit'),
       nextCard: document.querySelector('#next-card'),
     }
   },
@@ -42,6 +42,7 @@ let index = {};
 let vocabList;
 let currentIndex = 0;
 let currentQuestion;
+let isEditable = false;
 
 // Function declarations
 const loadJSON = async (filename, directory) => {
@@ -238,6 +239,7 @@ const newQuestion = () => {
   currentQuestion = getCurrentQuestion(lookup, vocabList, currentIndex);
   console.log(currentQuestion);
   renderQuestion(currentQuestion);
+  isEditable = false;
 }
 
 const changeQuestionIndex = (newIndex) => {
@@ -295,6 +297,10 @@ elements.quiz.cardControls.shuffleCards.addEventListener('click', () => {
   // newQuestion();
 });
 
+elements.quiz.toggleEdit.addEventListener('change', (e) => {
+  isEditable = e.target.checked;
+});
+
 elements.menu.vocabList.addEventListener('change', (e) => {
   if (e.target.matches('.vocab-checkbox')) {
     const checkbox = e.target;
@@ -318,7 +324,7 @@ elements.quiz.sentenceEng.addEventListener('click', (e) => {
     const wordDiv = e.target;
 
     // wordDiv.classList.toggle('is-clozed');
-    wordDiv.classList.remove('is-clozed');
+    // wordDiv.classList.remove('is-clozed');
     wordDiv.setAttribute('contenteditable', 'true');
   }
 });
