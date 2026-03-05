@@ -232,16 +232,35 @@ const changeQuestionIndex = (newIndex) => {
   newQuestion();
 }
 
-const setEditableCaratPos = (element) => {
-  const node = element.firstChild;
-  if (!node || node.nodeType !== Node.TEXT_NODE) return;
+// const setEditableCaratPos = (element) => {
+//   const node = element.firstChild;
+//   if (!node || node.nodeType !== Node.TEXT_NODE) return;
 
+//   const selection = window.getSelection();
+//   selection.removeAllRanges();
+
+//   const range = document.createRange();
+//   range.setStart(node, element.firstChild.length);
+//   range.setEnd(node, element.firstChild.length);
+
+//   selection.addRange(range);
+//   element.focus();
+// }
+
+const setEditableCaratPos = (element) => {
   const selection = window.getSelection();
   selection.removeAllRanges();
 
   const range = document.createRange();
-  range.setStart(node, element.firstChild.length);
-  range.setEnd(node, element.firstChild.length);
+  const node = element.firstChild;
+
+  if (!node || node.nodeType !== Node.TEXT_NODE) {
+    range.setStart(node, element.firstChild.length);
+    range.setEnd(node, element.firstChild.length);
+  } else {
+    range.selectNodeContents(element);
+    range.collapse(false);
+  }
 
   selection.addRange(range);
   element.focus();
