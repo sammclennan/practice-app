@@ -26,6 +26,13 @@ button {
     color: transparent;
 }
 
+.question-content {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
 .question-nav-btn {
     align-items: center;
     background-color: rgb(28, 176, 246);
@@ -51,6 +58,14 @@ button {
 .question-nav-controls {
     display: flex;
     gap: 1rem;
+}
+
+.quiz-interface {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    justify-content: center;
 }
 
 .sentence-eng {
