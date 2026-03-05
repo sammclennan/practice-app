@@ -185,21 +185,43 @@ const getCurrentQuestion = (lookup, vocabList, currentIndex) => {
   return lookup[cardID];
 }
 
+const removeIfEmpty = (e) => {
+  console.log(e);
+}
+
+// const clozeSentence = (text) => {
+//   const splitText = text.split(' ');
+//   console.log(splitText);
+
+//   const htmlArr = [];
+
+//   splitText.forEach(word => {
+//     htmlArr.push(`<div class="word-eng is-clozed" onfocusout="removeIfEmpty(self)">${word}</div>`);
+//   });
+
+//   return htmlArr.join('');
+// }
+
 const clozeSentence = (text) => {
   const splitText = text.split(' ');
   console.log(splitText);
 
-  const htmlArr = [];
-
   splitText.forEach(word => {
-    htmlArr.push(`<div class="word-eng is-clozed">${word}</div>`);
+    const wordDiv = document.createElement('div');
+    wordDiv.classList.add('word-eng');
+    wordDiv.classList.add('is-clozed');
+    wordDiv.textContent = word;
+    wordDiv.addEventListener('focusout', () => {
+      if (wordDiv.textContent.trim() === '') {
+        wordDiv.remove();
+      }
+    });
+    elements.quiz.sentenceEng.appendChild(wordDiv);
   });
-
-  return htmlArr.join('');
 }
 
 const renderQuestion = ({ eng, jp, audio }) => {
-  elements.quiz.sentenceEng.innerHTML = clozeSentence(eng);
+  clozeSentence(eng);
   elements.quiz.sentenceJp.textContent = jp;
   // elements.quiz.audio.src = PATHS.assets.audio.eng + audio;
 }
@@ -215,6 +237,21 @@ const changeQuestionIndex = (newIndex) => {
 
   currentIndex = newIndex;
   newQuestion();
+}
+
+const setEditableCaratPos = (element) => {
+  const node = element.firstChild;
+  if (!node || node.nodeType !== Node.TEXT_NODE) return;
+
+  const selection = window.getSelection();
+  selection.removeAllRanges();
+
+  const range = document.createRange();
+  range.setStart(node, element.firstChild.length);
+  range.setEnd(node, element.firstChild.length);
+
+  selection.addRange(range);
+  element.focus();
 }
 
 // Event listeners
@@ -278,89 +315,36 @@ elements.quiz.sentenceEng.addEventListener('click', (e) => {
   }
 });
 
-// async function loadImage(filename, imageDir, imageCache) {
-//   if (!filename) return null;
+document.addEventListener('keydown', (e) => {
+  const activeEl = document.activeElement;
+  if (activeEl.matches('.word-eng')) {
+    function focusCursorOnInput(input) {
+      input.focus();
+      const l = input.textContent.length;
+      input.setSelectionRange(l, l);
+    }
 
-//   const key = `${imageDir}${filename}`;
-  
-//   if (key in imageCache) {
-//       return Promise.resolve(imageCache[key])
-//   }
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      const newDiv = document.createElement('div');
+      newDiv.classList.add('word-eng');
+      newDiv.setAttribute('contenteditable', 'true');
 
-//   return new Promise(resolve => {
-//       const img = new Image();
-//       img.src = key;
+      activeEl.after(newDiv);
+      newDiv.focus();
 
-//       img.onload = () => {
-//           imageCache[key] = img;
-//           resolve(img);
-//       };
-
-//       img.onerror = () => {
-//           console.error(`Failed to load image: ${filename}`);
-//           resolve(null);
-//       };
-//   });
-// }
-
-// async function setImageSource(imageEl, filename, directory) {
-//   try {
-//     const img = await loadImage(filename, directory, imageCache);
-
-//     if (img) {
-//         imageEl.src = img.src;
-//     } else {
-//         imageEl.removeAttribute('src');
-//     }
-  
-//     imageEl.alt = quiz.currentQuestion?.jp || ''; // TODO
-//   } catch(e) {
-//     console.error('Failed to load vocab image', e);
-//   }
-// }
-
-// const loadAudio = async (filename, audioDir, audioCache) => {
-//   if (!filename) return null;
-
-//   const key = `${audioDir}${filename}`;
-
-//   if (key in audioCache) {
-//     return Promise.resolve(audioCache[key]);
-//   }
-
-//   return new Promise(resolve => {
-//     const audio = new Audio;
-//     audio.src = key;
-//     audio.preload = 'auto';
-
-//     audio.onloadeddata = () => {
-//       audioCache[key] = audio;
-//       resolve(audio);
-//     }
-
-//     audio.onerror = () => {
-//       console.error('Failed to load audio:', key);
-//       resolve(null);
-//     }
-//   });
-// }
-
-// const playAudio = async (filename, directory, { wait = false} = {}) => {
-//   const audio = await loadAudio(filename, directory, audioCache);
-//   if (!audio) return;
-
-//   audio.pause();
-//   audio.currentTime = 0;
-//   // audio.load(); // Safari bugfix. Uncomment if necessary
-
-//   if (!wait) {
-//     await audio.play().catch();
-//     return;
-//   }
-
-//   await new Promise((resolve, reject) => {
-//     audio.addEventListener('ended', resolve, { once: true });
-//     audio.addEventListener('error', reject, { once: true });
-//     audio.play().catch(reject);
-//   });
-// }
+    } else if (e.key === 'Backspace') {
+      const l = activeEl.textContent.length
+      if (l <= 0) {
+        e.preventDefault();
+        const siblings = activeEl.parentElement.children;
+        console.log(siblings.length);
+        if (siblings.length <= 1) {
+          return;
+        }
+        const prevEl = activeEl.previousElementSibling;
+        setEditableCaratPos(prevEl);
+      }
+    }
+  };
+});
