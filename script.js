@@ -221,6 +221,12 @@ elements.review.cardControls.prevCard.addEventListener('click', () => {
   newQuestion();
 });
 
+elements.review.cardControls.shuffleCards.addEventListener('click', () => {
+  vocabList = shuffleArray(vocabList);
+  changeQuestionIndex(0);
+  newQuestion();
+});
+
 elements.menu.vocabList.addEventListener('change', (e) => {
   if (e.target.matches('.vocabCheckbox')) {
     const checkbox = e.target;
