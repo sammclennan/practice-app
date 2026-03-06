@@ -9,6 +9,7 @@
     --light-green-btn: rgb(88, 204, 2);
     --light-green-btn-shadow: rgb(81, 155, 24);
     --lilac-btn: rgb(206, 130, 255);
+    --lilac-btn-shadow: rgb(155, 107, 188);
     --off-white-background: rgb(247, 247, 247);
     --sky-blue-btn: rgb(28, 176, 246);
     --sky-blue-btn-shadow: rgb(24 153 214);
@@ -92,6 +93,15 @@ ol, ul {
     text-align: center;
 }
 
+.nav-btn {
+    background-color: var(--light-green-btn);
+    box-shadow: 1px 4px var(--light-green-btn-shadow);
+}
+
+.nav-btn-container {
+    align-self: flex-start;
+}
+
 .question-content {
     align-items: center;
     display: flex;
@@ -136,7 +146,7 @@ ol, ul {
     flex-direction: column;
     height: 100vh;
     justify-content: space-between;
-    padding: 3rem 1rem;
+    padding: 1rem 1rem 3rem;
     text-align: center;
 }
 

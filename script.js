@@ -24,6 +24,7 @@ const elements = {
     startQuizBtn: document.querySelector('#start-quiz-btn'),
   },
   quiz: {
+    homeBtn: document.querySelector('#home-btn'),
     sentenceEng: document.querySelector('#sentence-eng'),
     sentenceJp: document.querySelector('#sentence-jp'),
     audio: document.querySelector('#eng-audio'),
@@ -165,8 +166,6 @@ const updateVocabList = (checkbox) => {
 
   if (checkbox.checked && i === -1) vocabList.push(id);
   if (!checkbox.checked && i !== -1) vocabList.splice(i, 1);
-
-  console.log(vocabList)
 }
 
 const shuffleArray = (arr) => {
@@ -260,6 +259,11 @@ elements.menu.startQuizBtn.addEventListener('click', () => {
   elements.interfaces.quiz.classList.remove('hidden');
 
   newQuestion();
+});
+
+elements.quiz.homeBtn.addEventListener('click', () => {
+  elements.interfaces.quiz.classList.add('hidden');
+  elements.interfaces.selectVocab.classList.remove('hidden');
 });
 
 elements.quiz.questionControls.nextQuestion.addEventListener('click', () => {
