@@ -6,6 +6,8 @@
     /* Colors */
     --container-border: rgb(169, 169, 169);
     --deep-blue-text: rgb(33, 43, 65);
+    --light-green-btn: rgb(88, 204, 2);
+    --light-green-btn-shadow: rgb(81, 155, 24);
     --lilac-btn: rgb(206, 130, 255);
     --off-white-background: rgb(247, 247, 247);
     --sky-blue-btn: rgb(28, 176, 246);
@@ -36,8 +38,25 @@ ol, ul {
     padding-left: 2rem;
 }
 
-.btn-raised {
+.btn-raised,
+#toggle-edit-container {
+    align-items: center;
+    background-color: var(--sky-blue-btn);
+    border: none;
+    border-radius: 0.333rem;
+    box-shadow: 1px 4px var(--sky-blue-btn-shadow);
+    color: white;
+    display: flex;
+    font-family: inherit;
+    justify-content: center;
+    padding: 0.25rem;
+}
 
+.btn-raised:active,
+#toggle-edit-container:active,
+#toggle-edit-container:has(input:checked) {
+    transform: translateY(4px);
+    box-shadow: none !important;
 }
 
 .hidden {
@@ -62,7 +81,7 @@ ol, ul {
     margin: 1rem 0;
 }
 
-.question-nav-btn,
+/* .question-nav-btn,
 #toggle-edit-container {
     align-items: center;
     background-color: var(--sky-blue-btn);
@@ -79,7 +98,7 @@ ol, ul {
 #toggle-edit-container:has(input:checked) {
     transform: translateY(4px);
     box-shadow: none;
-}
+} */
 
 .question-nav-btn-icon {
     aspect-ratio: 1;
@@ -139,7 +158,11 @@ ol, ul {
 }
 
 #start-quiz-btn {
+    background-color: var(--light-green-btn);
+    box-shadow: 1px 4px var(--light-green-btn-shadow);
+    font-size: 2rem;
     margin: auto;
+    padding: 0.5rem 1rem;
     width: fit-content;
 }
 
@@ -147,6 +170,7 @@ ol, ul {
     display: none;
 }
 
+#toggle-edit-container:active,
 #toggle-edit-container:has(input:checked) {
     background-color: var(--lilac-btn);
 }
