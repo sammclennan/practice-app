@@ -40,7 +40,7 @@ const elements = {
 let vocabData;
 let lookup = {};
 let index = {};
-let vocabList;
+let vocabList = [];
 let currentIndex = 0;
 let currentQuestion;
 let isEditable = false;
@@ -156,6 +156,18 @@ const updateParentCheckbox = (checkbox) => {
   updateParentCheckbox(parentCheckbox);
 }
 
+const updateVocabList = (checkbox) => {
+  if (checkbox.dataset.type !== 'item') return;
+
+  const id = checkbox.value;
+  const i = vocabList.indexOf(id);
+
+  if (checkbox.checked && i === -1) vocabList.push(id);
+  if (!checkbox.checked && i !== -1) vocabList.splice(i, 1);
+
+  console.log(vocabList)
+}
+
 const shuffleArray = (arr) => {
   const res = [...arr];
   for (let i = res.length - 1; i > 0; i--) {
@@ -163,24 +175,6 @@ const shuffleArray = (arr) => {
     [res[i], res[j]] = [res[j], res[i]];
   }
   return res;
-}
-
-const buildQuizVocabList = () => {
-  const res = [];
-  const byLevel = {};
-
-  elements.menu.vocabList.querySelectorAll('.vocab-checkbox[data-type="item"]:checked').forEach(checkbox => {
-    const id = checkbox.value;
-    const level = checkbox.dataset.level;
-    (byLevel[level] ??= []).push(id);
-  });
-
-  Object.values(byLevel).forEach(arr => {
-    // res.push(shuffleArray(arr));
-    res.push(arr);
-  });
-
-  return res.flat();
 }
 
 const getCurrentQuestion = (lookup, vocabList, currentIndex) => {
@@ -236,6 +230,8 @@ document.addEventListener('DOMContentLoaded', init);
 elements.menu.vocabList.addEventListener('change', (e) => {
   if (e.target.matches('.vocab-checkbox')) {
     const checkbox = e.target;
+    
+    updateVocabList(checkbox);
 
     const descendents =
       checkbox.closest('li')
@@ -245,6 +241,8 @@ elements.menu.vocabList.addEventListener('change', (e) => {
     descendents?.forEach(cb => {
       cb.indeterminate = false;
       cb.checked = checkbox.checked;
+      
+      updateVocabList(cb);
     });
     
     updateParentCheckbox(checkbox);
@@ -252,8 +250,6 @@ elements.menu.vocabList.addEventListener('change', (e) => {
 });
 
 elements.menu.startQuizBtn.addEventListener('click', () => {
-  vocabList = buildQuizVocabList();
-
   if (!vocabList.length) {
     alert('Please select some data!');
     return;
