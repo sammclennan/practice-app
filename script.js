@@ -79,14 +79,14 @@ const fillVocabSelectMenu = (index) => {
   const htmlArr = [];
   for (const [level, categories] of Object.entries(index)) {
     htmlArr.push(`<li class="level-list">`);
-    htmlArr.push(`<label><input class="vocab-checkbox" type="checkbox" data-type="level" data-level="${level}">Level ${level}</label>`);
+    htmlArr.push(`<label class="vocab-list-label level-list-label"><input class="vocab-checkbox" type="checkbox" data-type="level" data-level="${level}">Level ${level}</label>`);
     htmlArr.push('<ul>');
     for (const [category, vocabList] of Object.entries(categories)) {
       htmlArr.push('<li class="category-sublist">');
-      htmlArr.push(`<label><input class="vocab-checkbox" type="checkbox" data-type="category" data-level="${level}" data-category="${category}">${capitalize(category)}</label>`)
+      htmlArr.push(`<label class="vocab-list-label category-list-label"><input class="vocab-checkbox" type="checkbox" data-type="category" data-level="${level}" data-category="${category}">${capitalize(category)}</label>`)
       htmlArr.push('<ul>');
       for (const item of vocabList) {
-        htmlArr.push(`<li><label><input class="vocab-checkbox" type="checkbox" value="${item}" data-type="item" data-level="${level}" data-category="${category}">${lookup[item].eng}</label></li>`);
+        htmlArr.push(`<li class="vocab-list-item"><label class="vocab-list-label list-item-label"><input class="vocab-checkbox" type="checkbox" value="${item}" data-type="item" data-level="${level}" data-category="${category}">${lookup[item].eng}</label></li>`);
       }
       htmlArr.push('</ul>');
     }

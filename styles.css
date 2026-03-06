@@ -59,6 +59,21 @@ ol, ul {
     box-shadow: none !important;
 }
 
+.category-list-label {
+    font-size: 1.25rem;
+}
+
+.checkbox-list {
+    font-size: 1rem;
+    padding-left: 0;
+}
+
+.checkbox-list li,
+.checkbox-list ol,
+.checkbox-list ul {
+    list-style: none;
+}
+
 .hidden {
     display: none !important;
 }
@@ -66,6 +81,10 @@ ol, ul {
 .is-clozed {
     border-bottom: 3px solid black;
     color: transparent;
+}
+
+.level-list-label {
+    font-size: 1.5rem;
 }
 
 .menu-header {
@@ -128,9 +147,10 @@ ol, ul {
     box-shadow: 2px 6px var(--container-border);
     display: flex;
     flex-direction: column;
-    height: 80vh;
-    margin: 2rem auto 0;
-    padding: 1rem;
+    gap: 1.5rem;
+    height: 90vh;
+    margin: 5vh auto 0;
+    padding: 1.5rem 3rem;
     width: min(80%, 600px);
 }
 
@@ -149,6 +169,22 @@ ol, ul {
 
 .toggle-btn {
     cursor: pointer;
+}
+
+.vocab-checkbox {
+    margin-right: 0.5rem;
+    height: 1.25rem;
+    vertical-align: middle;
+    width: 1.25rem;
+}
+
+.vocab-list-item:last-of-type {
+    margin-bottom: 0.5rem;
+}
+
+.vocab-list-label {
+    display: block;
+    margin-bottom: 0.25em;
 }
 
 .word-eng {
