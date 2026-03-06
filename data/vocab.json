@@ -2,34 +2,1361 @@
   {
     "id": "hello",
     "level": 1,
+    "category": "greetings",
     "eng": "Hello",
     "jp": "こんにちは",
-    "audio": "hello.mp3",
-    "category": "introduction"
+    "audio": "hello.mp3"
   },
   {
-    "id": "my_name_is_maria",
+    "id": "goodbye",
     "level": 1,
-    "eng": "My name is Maria",
+    "category": "greetings",
+    "eng": "Goodbye",
+    "jp": "さようなら",
+    "audio": "goodbye.mp3"
+  },
+  {
+    "id": "good_morning",
+    "level": 1,
+    "category": "greetings",
+    "eng": "Good morning",
+    "jp": "おはよう",
+    "audio": "good_morning.mp3"
+  },
+  {
+    "id": "good_night",
+    "level": 1,
+    "category": "greetings",
+    "eng": "Good night",
+    "jp": "おやすみ",
+    "audio": "good_night.mp3"
+  },
+  {
+    "id": "good_afternoon",
+    "level": 1,
+    "category": "greetings",
+    "eng": "Good afternoon",
+    "jp": "こんにちは (午後の挨拶）",
+    "audio": "good_afternoon.mp3"
+  },
+  {
+    "id": "good_evening",
+    "level": 1,
+    "category": "greetings",
+    "eng": "Good evening",
+    "jp": "こんばんは",
+    "audio": "good_evening.mp3"
+  },
+  {
+    "id": "hey",
+    "level": 1,
+    "category": "interjections",
+    "eng": "Hey",
+    "jp": "ねえ",
+    "audio": "hey.mp3"
+  },
+  {
+    "id": "oi",
+    "level": 1,
+    "category": "interjections",
+    "eng": "Oi!",
+    "jp": "おい！",
+    "audio": "oi.mp3"
+  },
+  {
+    "id": "welcome",
+    "level": 1,
+    "category": "greetings",
+    "eng": "Welcome!",
+    "jp": "ようこそ！",
+    "audio": "welcome.mp3"
+  },
+  {
+    "id": "welcome_back",
+    "level": 1,
+    "category": "basic conversation",
+    "eng": "Welcome back!",
+    "jp": "おかえり！",
+    "audio": "welcome_back.mp3"
+  },
+  {
+    "id": "im_maria",
+    "level": 1,
+    "category": "introduction",
+    "eng": "I'm Maria",
     "jp": "私はマリアです",
-    "audio": "my_name_is_maria.mp3",
-    "category": "introduction"
+    "audio": "im_maria.mp3"
   },
   {
     "id": "nice_to_meet_you",
     "level": 1,
+    "category": "introduction",
     "eng": "Nice to meet you",
     "jp": "初めまして",
-    "audio": "nice_to_meet_you.mp3",
-    "category": "introduction"
+    "audio": "nice_to_meet_you.mp3"
+  },
+  {
+    "id": "whats_your_name",
+    "level": 1,
+    "category": "introduction",
+    "eng": "What's your name?",
+    "jp": "お名前は？",
+    "audio": "whats_your_name.mp3"
+  },
+  {
+    "id": "i_am_japanese",
+    "level": 1,
+    "category": "introduction",
+    "eng": "I am Japanese",
+    "jp": "私は日本人です",
+    "audio": "i_am_japanese.mp3"
+  },
+  {
+    "id": "i_am_from_japan",
+    "level": 1,
+    "category": "introduction",
+    "eng": "I am from Japan",
+    "jp": "日本から来ました",
+    "audio": "i_am_from_japan.mp3"
+  },
+  {
+    "id": "where_are_you_from",
+    "level": 1,
+    "category": "introduction",
+    "eng": "Where are you from?",
+    "jp": "ご出身はどちらですか？",
+    "audio": "where_are_you_from.mp3"
   },
   {
     "id": "i_am_a_student",
     "level": 1,
+    "category": "introduction",
     "eng": "I am a student",
     "jp": "私は学生です",
-    "audio": "i_am_a_student.mp3",
-    "category": "introduction"
+    "audio": "i_am_a_student.mp3"
+  },
+  {
+    "id": "i_am_a_teacher",
+    "level": 1,
+    "category": "introduction",
+    "eng": "I am a teacher",
+    "jp": "私は先生です",
+    "audio": "i_am_a_teacher.mp3"
+  },
+  {
+    "id": "he_is_a_teacher",
+    "level": 1,
+    "category": "introduction",
+    "eng": "He is a teacher",
+    "jp": "彼は先生です",
+    "audio": "he_is_a_teacher.mp3"
+  },
+  {
+    "id": "she_is_a_nurse",
+    "level": 1,
+    "category": "introduction",
+    "eng": "She is a nurse",
+    "jp": "彼女は看護師です",
+    "audio": "she_is_a_nurse.mp3"
+  },
+  {
+    "id": "what_do_you_do",
+    "level": 1,
+    "category": "introduction",
+    "eng": "What do you do?",
+    "jp": "お仕事は何ですか？",
+    "audio": "what_do_you_do.mp3"
+  },
+  {
+    "id": "i_am_20_years_old",
+    "level": 1,
+    "category": "introduction",
+    "eng": "I am 20 years old",
+    "jp": "私は２０才です",
+    "audio": "i_am_20_years_old.mp3"
+  },
+  {
+    "id": "how_old_are_you",
+    "level": 1,
+    "category": "introduction",
+    "eng": "How old are you?",
+    "jp": "何歳ですか？",
+    "audio": "how_old_are_you.mp3"
+  },
+  {
+    "id": "i_go_to_junior_high",
+    "level": 1,
+    "category": "introduction",
+    "eng": "I go to junior high",
+    "jp": "私は中学校に通っています",
+    "audio": "i_go_to_junior_high.mp3"
+  },
+  {
+    "id": "how_are_you",
+    "level": 1,
+    "category": "basic conversation",
+    "eng": "How are you?",
+    "jp": "お元気ですか？",
+    "audio": "how_are_you.mp3"
+  },
+  {
+    "id": "im_good",
+    "level": 1,
+    "category": "basic conversation",
+    "eng": "I'm good",
+    "jp": "元気です",
+    "audio": "im_good.mp3"
+  },
+  {
+    "id": "how_about_you",
+    "level": 1,
+    "category": "basic conversation",
+    "eng": "How about you?",
+    "jp": "あなたは？",
+    "audio": "how_about_you.mp3"
+  },
+  {
+    "id": "okay",
+    "level": 1,
+    "category": "basic conversation",
+    "eng": "Okay",
+    "jp": "オーケー",
+    "audio": "okay.mp3"
+  },
+  {
+    "id": "i_dont_understand",
+    "level": 1,
+    "category": "basic conversation",
+    "eng": "I don't understand",
+    "jp": "わかりません",
+    "audio": "i_dont_understand.mp3"
+  },
+  {
+    "id": "got_it",
+    "level": 1,
+    "category": "basic conversation",
+    "eng": "Got it",
+    "jp": "わかった",
+    "audio": "got_it.mp3"
+  },
+  {
+    "id": "really",
+    "level": 1,
+    "category": "basic conversation",
+    "eng": "Really?",
+    "jp": "そうですか？",
+    "audio": "really.mp3"
+  },
+  {
+    "id": "i_see",
+    "level": 1,
+    "category": "basic conversation",
+    "eng": "I see",
+    "jp": "なるほど",
+    "audio": "i_see.mp3"
+  },
+  {
+    "id": "i_know",
+    "level": 1,
+    "category": "basic conversation",
+    "eng": "I know",
+    "jp": "知っている",
+    "audio": "i_know.mp3"
+  },
+  {
+    "id": "i_dont_know",
+    "level": 1,
+    "category": "basic conversation",
+    "eng": "I don't know",
+    "jp": "しらない",
+    "audio": "i_dont_know.mp3"
+  },
+  {
+    "id": "i_cant",
+    "level": 1,
+    "category": "basic conversation",
+    "eng": "I can't",
+    "jp": "できない",
+    "audio": "i_cant.mp3"
+  },
+  {
+    "id": "me_too",
+    "level": 1,
+    "category": "basic conversation",
+    "eng": "Me too",
+    "jp": "私も",
+    "audio": "me_too.mp3"
+  },
+  {
+    "id": "maybe",
+    "level": 1,
+    "category": "basic conversation",
+    "eng": "Maybe",
+    "jp": "たぶん",
+    "audio": "maybe.mp3"
+  },
+  {
+    "id": "thats_right",
+    "level": 1,
+    "category": "basic conversation",
+    "eng": "That's right",
+    "jp": "そうです",
+    "audio": "thats_right.mp3"
+  },
+  {
+    "id": "so_so",
+    "level": 1,
+    "category": "basic conversation",
+    "eng": "So-so",
+    "jp": "まあまあです",
+    "audio": "so_so.mp3"
+  },
+  {
+    "id": "not_bad",
+    "level": 1,
+    "category": "basic conversation",
+    "eng": "Not bad",
+    "jp": "悪くないです",
+    "audio": "not_bad.mp3"
+  },
+  {
+    "id": "im_fine",
+    "level": 1,
+    "category": "basic conversation",
+    "eng": "I'm fine",
+    "jp": "大丈夫です",
+    "audio": "im_fine.mp3"
+  },
+  {
+    "id": "whats_wrong",
+    "level": 1,
+    "category": "basic conversation",
+    "eng": "What's wrong?",
+    "jp": "どうしたの？",
+    "audio": "whats_wrong.mp3"
+  },
+  {
+    "id": "are_you_okay",
+    "level": 1,
+    "category": "basic conversation",
+    "eng": "Are you okay?",
+    "jp": "大丈夫ですか？",
+    "audio": "are_you_okay.mp3"
+  },
+  {
+    "id": "where_are_you",
+    "level": 1,
+    "category": "basic conversation",
+    "eng": "Where are you?",
+    "jp": "今どこ？",
+    "audio": "where_are_you.mp3"
+  },
+  {
+    "id": "whats_this",
+    "level": 1,
+    "category": "basic conversation",
+    "eng": "What's this?",
+    "jp": "これは何ですか？",
+    "audio": "whats_this.mp3"
+  },
+  {
+    "id": "whats_that",
+    "level": 1,
+    "category": "basic conversation",
+    "eng": "What's that?",
+    "jp": "あれは何ですか？",
+    "audio": "whats_that.mp3"
+  },
+  {
+    "id": "whatcha_doin",
+    "level": 1,
+    "category": "basic conversation",
+    "eng": "Whatcha doin'?",
+    "jp": "何してんの？",
+    "audio": "whatcha_doin.mp3"
+  },
+  {
+    "id": "yep",
+    "level": 1,
+    "category": "interjections",
+    "eng": "Yep",
+    "jp": "うん",
+    "audio": "yep.mp3"
+  },
+  {
+    "id": "sure",
+    "level": 1,
+    "category": "basic conversation",
+    "eng": "Sure!",
+    "jp": "いいよ！",
+    "audio": "sure.mp3"
+  },
+  {
+    "id": "all_right",
+    "level": 1,
+    "category": "basic conversation",
+    "eng": "All right!",
+    "jp": "よし！",
+    "audio": "all_right.mp3"
+  },
+  {
+    "id": "no_thank_you",
+    "level": 1,
+    "category": "basic conversation",
+    "eng": "No thank you",
+    "jp": "結構です",
+    "audio": "no_thank_you.mp3"
+  },
+  {
+    "id": "youre_welcome",
+    "level": 1,
+    "category": "basic conversation",
+    "eng": "You're welcome",
+    "jp": "どういたしまして",
+    "audio": "youre_welcome.mp3"
+  },
+  {
+    "id": "good_for_you",
+    "level": 1,
+    "category": "basic conversation",
+    "eng": "Good for you!",
+    "jp": "よかったね！",
+    "audio": "good_for_you.mp3"
+  },
+  {
+    "id": "hmm",
+    "level": 1,
+    "category": "interjections",
+    "eng": "Hmm…",
+    "jp": "ふーむ…",
+    "audio": "hmm.mp3"
+  },
+  {
+    "id": "good",
+    "level": 1,
+    "category": "basic conversation",
+    "eng": "Good",
+    "jp": "よかった",
+    "audio": "good.mp3"
+  },
+  {
+    "id": "not_yet",
+    "level": 1,
+    "category": "basic conversation",
+    "eng": "Not yet",
+    "jp": "まだ",
+    "audio": "not_yet.mp3"
+  },
+  {
+    "id": "done",
+    "level": 1,
+    "category": "interjections",
+    "eng": "Done!",
+    "jp": "できた！",
+    "audio": "done.mp3"
+  },
+  {
+    "id": "yes",
+    "level": 1,
+    "category": "basic conversation",
+    "eng": "Yes",
+    "jp": "はい",
+    "audio": "yes.mp3"
+  },
+  {
+    "id": "no",
+    "level": 1,
+    "category": "basic conversation",
+    "eng": "No",
+    "jp": "いいえ",
+    "audio": "no.mp3"
+  },
+  {
+    "id": "yum",
+    "level": 1,
+    "category": "interjections",
+    "eng": "Yum!",
+    "jp": "うまっ！",
+    "audio": "yum.mp3"
+  },
+  {
+    "id": "yuck",
+    "level": 1,
+    "category": "interjections",
+    "eng": "Yuck!",
+    "jp": "まずっ！",
+    "audio": "yuck.mp3"
+  },
+  {
+    "id": "ouch",
+    "level": 1,
+    "category": "interjections",
+    "eng": "Ouch!",
+    "jp": "いたっ！",
+    "audio": "ouch.mp3"
+  },
+  {
+    "id": "oops",
+    "level": 1,
+    "category": "interjections",
+    "eng": "Oops!",
+    "jp": "おっと！",
+    "audio": "oops.mp3"
+  },
+  {
+    "id": "oh",
+    "level": 1,
+    "category": "interjections",
+    "eng": "Oh",
+    "jp": "おお",
+    "audio": "oh.mp3"
+  },
+  {
+    "id": "cool",
+    "level": 1,
+    "category": "interjections",
+    "eng": "Cool!",
+    "jp": "いいね！",
+    "audio": "cool.mp3"
+  },
+  {
+    "id": "wow",
+    "level": 1,
+    "category": "interjections",
+    "eng": "Wow!",
+    "jp": "わあ！",
+    "audio": "wow.mp3"
+  },
+  {
+    "id": "gross",
+    "level": 1,
+    "category": "interjections",
+    "eng": "Gross!",
+    "jp": "気持ち悪っ！",
+    "audio": "gross.mp3"
+  },
+  {
+    "id": "oh_no",
+    "level": 1,
+    "category": "interjections",
+    "eng": "Oh no…",
+    "jp": "そんな…",
+    "audio": "oh_no.mp3"
+  },
+  {
+    "id": "no_way",
+    "level": 1,
+    "category": "interjections",
+    "eng": "No way!",
+    "jp": "まさか！",
+    "audio": "no_way.mp3"
+  },
+  {
+    "id": "awesome",
+    "level": 1,
+    "category": "interjections",
+    "eng": "Awesome!",
+    "jp": "すごい！",
+    "audio": "awesome.mp3"
+  },
+  {
+    "id": "weird",
+    "level": 1,
+    "category": "interjections",
+    "eng": "Weird",
+    "jp": "変",
+    "audio": "weird.mp3"
+  },
+  {
+    "id": "cute",
+    "level": 1,
+    "category": "interjections",
+    "eng": "Cute!",
+    "jp": "かわいい！",
+    "audio": "cute.mp3"
+  },
+  {
+    "id": "oh_well",
+    "level": 1,
+    "category": "interjections",
+    "eng": "Oh well",
+    "jp": "まあいいか",
+    "audio": "oh_well.mp3"
+  },
+  {
+    "id": "umm",
+    "level": 1,
+    "category": "interjections",
+    "eng": "Umm…",
+    "jp": "えっと…",
+    "audio": "umm.mp3"
+  },
+  {
+    "id": "huh",
+    "level": 1,
+    "category": "interjections",
+    "eng": "Huh?",
+    "jp": "え？",
+    "audio": "huh.mp3"
+  },
+  {
+    "id": "shhh",
+    "level": 1,
+    "category": "interjections",
+    "eng": "Shhh…",
+    "jp": "シー...",
+    "audio": "shhh.mp3"
+  },
+  {
+    "id": "what",
+    "level": 1,
+    "category": "interjections",
+    "eng": "What?",
+    "jp": "何？",
+    "audio": "what.mp3"
+  },
+  {
+    "id": "see_ya",
+    "level": 1,
+    "category": "basic conversation",
+    "eng": "See ya",
+    "jp": "じゃあね",
+    "audio": "see_ya.mp3"
+  },
+  {
+    "id": "im_off",
+    "level": 1,
+    "category": "basic conversation",
+    "eng": "I'm off!",
+    "jp": "行ってきます！",
+    "audio": "im_off.mp3"
+  },
+  {
+    "id": "take_care",
+    "level": 1,
+    "category": "basic conversation",
+    "eng": "Take care!",
+    "jp": "行ってらっしゃい！",
+    "audio": "take_care.mp3"
+  },
+  {
+    "id": "im_home",
+    "level": 1,
+    "category": "basic conversation",
+    "eng": "I'm home!",
+    "jp": "ただいま！",
+    "audio": "im_home.mp3"
+  },
+  {
+    "id": "gotta_go",
+    "level": 1,
+    "category": "basic conversation",
+    "eng": "Gotta go",
+    "jp": "行かなきゃ",
+    "audio": "gotta_go.mp3"
+  },
+  {
+    "id": "where",
+    "level": 1,
+    "category": "question words",
+    "eng": "Where?",
+    "jp": "どこ？",
+    "audio": "where.mp3"
+  },
+  {
+    "id": "when",
+    "level": 1,
+    "category": "question words",
+    "eng": "When?",
+    "jp": "いつ？",
+    "audio": "when.mp3"
+  },
+  {
+    "id": "why",
+    "level": 1,
+    "category": "question words",
+    "eng": "Why?",
+    "jp": "なぜ？",
+    "audio": "why.mp3"
+  },
+  {
+    "id": "who",
+    "level": 1,
+    "category": "question words",
+    "eng": "Who?",
+    "jp": "誰？",
+    "audio": "who.mp3"
+  },
+  {
+    "id": "how",
+    "level": 1,
+    "category": "question words",
+    "eng": "How?",
+    "jp": "どうやって？",
+    "audio": "how.mp3"
+  },
+  {
+    "id": "sorry",
+    "level": 1,
+    "category": "basic conversation",
+    "eng": "Sorry",
+    "jp": "ごめんなさい",
+    "audio": "sorry.mp3"
+  },
+  {
+    "id": "please",
+    "level": 1,
+    "category": "basic conversation",
+    "eng": "Please",
+    "jp": "お願い",
+    "audio": "please.mp3"
+  },
+  {
+    "id": "thank_you",
+    "level": 1,
+    "category": "basic conversation",
+    "eng": "Thank you",
+    "jp": "ありがとう",
+    "audio": "thank_you.mp3"
+  },
+  {
+    "id": "excuse_me",
+    "level": 1,
+    "category": "basic conversation",
+    "eng": "Excuse me",
+    "jp": "すみません",
+    "audio": "excuse_me.mp3"
+  },
+  {
+    "id": "after_you",
+    "level": 1,
+    "category": "basic conversation",
+    "eng": "After you",
+    "jp": "お先にどうぞ",
+    "audio": "after_you.mp3"
+  },
+  {
+    "id": "here_you_go",
+    "level": 1,
+    "category": "basic conversation",
+    "eng": "Here you go",
+    "jp": "どうぞ",
+    "audio": "here_you_go.mp3"
+  },
+  {
+    "id": "lets_go",
+    "level": 1,
+    "category": "action calls",
+    "eng": "Let's go!",
+    "jp": "行こう！",
+    "audio": "lets_go.mp3"
+  },
+  {
+    "id": "go",
+    "level": 1,
+    "category": "action calls",
+    "eng": "Go!",
+    "jp": "行け！",
+    "audio": "go.mp3"
+  },
+  {
+    "id": "stop",
+    "level": 1,
+    "category": "action calls",
+    "eng": "Stop!",
+    "jp": "やめて！",
+    "audio": "stop.mp3"
+  },
+  {
+    "id": "run",
+    "level": 1,
+    "category": "action calls",
+    "eng": "Run!",
+    "jp": "走れ！",
+    "audio": "run.mp3"
+  },
+  {
+    "id": "jump",
+    "level": 1,
+    "category": "action calls",
+    "eng": "Jump!",
+    "jp": "ジャンプして！",
+    "audio": "jump.mp3"
+  },
+  {
+    "id": "kick",
+    "level": 1,
+    "category": "action calls",
+    "eng": "Kick!",
+    "jp": "蹴れ！",
+    "audio": "kick.mp3"
+  },
+  {
+    "id": "move",
+    "level": 1,
+    "category": "action calls",
+    "eng": "Move!",
+    "jp": "どいて！",
+    "audio": "move.mp3"
+  },
+  {
+    "id": "pull",
+    "level": 1,
+    "category": "action calls",
+    "eng": "Pull!",
+    "jp": "引っ張って！",
+    "audio": "pull.mp3"
+  },
+  {
+    "id": "push",
+    "level": 1,
+    "category": "action calls",
+    "eng": "Push!",
+    "jp": "押せ！",
+    "audio": "push.mp3"
+  },
+  {
+    "id": "wait",
+    "level": 1,
+    "category": "action calls",
+    "eng": "Wait!",
+    "jp": "待って！",
+    "audio": "wait.mp3"
+  },
+  {
+    "id": "come_here",
+    "level": 1,
+    "category": "action calls",
+    "eng": "Come here",
+    "jp": "こっちに来て",
+    "audio": "come_here.mp3"
+  },
+  {
+    "id": "hurry",
+    "level": 1,
+    "category": "action calls",
+    "eng": "Hurry!",
+    "jp": "急いで！",
+    "audio": "hurry.mp3"
+  },
+  {
+    "id": "quickly",
+    "level": 1,
+    "category": "action calls",
+    "eng": "Quickly!",
+    "jp": "早く！",
+    "audio": "quickly.mp3"
+  },
+  {
+    "id": "coming",
+    "level": 1,
+    "category": "action calls",
+    "eng": "Coming!",
+    "jp": "今行くよ！",
+    "audio": "coming.mp3"
+  },
+  {
+    "id": "look",
+    "level": 1,
+    "category": "action calls",
+    "eng": "Look!",
+    "jp": "見て！",
+    "audio": "look.mp3"
+  },
+  {
+    "id": "look_at_this",
+    "level": 1,
+    "category": "action calls",
+    "eng": "Look at this",
+    "jp": "これ見て",
+    "audio": "look_at_this.mp3"
+  },
+  {
+    "id": "look_at_that",
+    "level": 1,
+    "category": "action calls",
+    "eng": "Look at that",
+    "jp": "あれ見て！",
+    "audio": "look_at_that.mp3"
+  },
+  {
+    "id": "give_it_here",
+    "level": 1,
+    "category": "action calls",
+    "eng": "Give it here",
+    "jp": "貸して",
+    "audio": "give_it_here.mp3"
+  },
+  {
+    "id": "be_quiet",
+    "level": 1,
+    "category": "action calls",
+    "eng": "Be quiet!",
+    "jp": "静かにしなさい！",
+    "audio": "be_quiet.mp3"
+  },
+  {
+    "id": "go_away",
+    "level": 1,
+    "category": "action calls",
+    "eng": "Go away!",
+    "jp": "あっち行って！",
+    "audio": "go_away.mp3"
+  },
+  {
+    "id": "shut_up",
+    "level": 1,
+    "category": "action calls",
+    "eng": "Shut up!",
+    "jp": "黙れ！",
+    "audio": "shut_up.mp3"
+  },
+  {
+    "id": "help",
+    "level": 1,
+    "category": "emergency & warnings",
+    "eng": "Help!",
+    "jp": "助けて！",
+    "audio": "help.mp3"
+  },
+  {
+    "id": "fire",
+    "level": 1,
+    "category": "emergency & warnings",
+    "eng": "Fire!",
+    "jp": "火事だ！",
+    "audio": "fire.mp3"
+  },
+  {
+    "id": "call_911",
+    "level": 1,
+    "category": "emergency & warnings",
+    "eng": "Call 911!",
+    "jp": "９１１に電話して！",
+    "audio": "call_911.mp3"
+  },
+  {
+    "id": "watch_out",
+    "level": 1,
+    "category": "emergency & warnings",
+    "eng": "Watch out!",
+    "jp": "危ない！",
+    "audio": "watch_out.mp3"
+  },
+  {
+    "id": "be_careful",
+    "level": 1,
+    "category": "emergency & warnings",
+    "eng": "Be careful",
+    "jp": "気をつけてね",
+    "audio": "be_careful.mp3"
+  },
+  {
+    "id": "good_job",
+    "level": 1,
+    "category": "basic conversation",
+    "eng": "Good job!",
+    "jp": "よくやった！",
+    "audio": "good_job.mp3"
+  },
+  {
+    "id": "good_luck",
+    "level": 1,
+    "category": "basic conversation",
+    "eng": "Good luck!",
+    "jp": "頑張って！",
+    "audio": "good_luck.mp3"
+  },
+  {
+    "id": "congratulations",
+    "level": 1,
+    "category": "celebration",
+    "eng": "Congratulations!",
+    "jp": "おめでとうございます！",
+    "audio": "congratulations.mp3"
+  },
+  {
+    "id": "happy_birthday",
+    "level": 1,
+    "category": "celebration",
+    "eng": "Happy birthday",
+    "jp": "お誕生日おめでとう！",
+    "audio": "happy_birthday.mp3"
+  },
+  {
+    "id": "happy_new_year",
+    "level": 1,
+    "category": "celebration",
+    "eng": "Happy New Year",
+    "jp": "明けましておめでとうございます！",
+    "audio": "happy_new_year.mp3"
+  },
+  {
+    "id": "merry_christmas",
+    "level": 1,
+    "category": "celebration",
+    "eng": "Merry Christmas",
+    "jp": "メリークリスマス！",
+    "audio": "merry_christmas.mp3"
+  },
+  {
+    "id": "have_fun",
+    "level": 1,
+    "category": "basic conversation",
+    "eng": "Have fun!",
+    "jp": "楽しんできてね！",
+    "audio": "have_fun.mp3"
+  },
+  {
+    "id": "cheers",
+    "level": 1,
+    "category": "basic conversation",
+    "eng": "Cheers!",
+    "jp": "乾杯！",
+    "audio": "cheers.mp3"
+  },
+  {
+    "id": "lets_eat",
+    "level": 1,
+    "category": "food & dining",
+    "eng": "Let's eat",
+    "jp": "いただきます！",
+    "audio": "lets_eat.mp3"
+  },
+  {
+    "id": "dinners_ready",
+    "level": 1,
+    "category": "food & dining",
+    "eng": "Dinner's ready",
+    "jp": "夜ご飯できたよ",
+    "audio": "dinners_ready.mp3"
+  },
+  {
+    "id": "delicious",
+    "level": 1,
+    "category": "food & dining",
+    "eng": "Delicious!",
+    "jp": "美味しい！",
+    "audio": "delicious.mp3"
+  },
+  {
+    "id": "just_a_little",
+    "level": 1,
+    "category": "food & dining",
+    "eng": "Just a little",
+    "jp": "ちょっとだけ",
+    "audio": "just_a_little.mp3"
+  },
+  {
+    "id": "thats_enough",
+    "level": 1,
+    "category": "food & dining",
+    "eng": "That's enough",
+    "jp": "もういい",
+    "audio": "thats_enough.mp3"
+  },
+  {
+    "id": "waiter",
+    "level": 1,
+    "category": "food & dining",
+    "eng": "Waiter!",
+    "jp": "ウェイター！",
+    "audio": "waiter.mp3"
+  },
+  {
+    "id": "coffee_please",
+    "level": 1,
+    "category": "food & dining",
+    "eng": "Coffee, please",
+    "jp": "コーヒーをください",
+    "audio": "coffee_please.mp3"
+  },
+  {
+    "id": "salad_please",
+    "level": 1,
+    "category": "food & dining",
+    "eng": "Salad, please",
+    "jp": "サラダをください",
+    "audio": "salad_please.mp3"
+  },
+  {
+    "id": "pasta_please",
+    "level": 1,
+    "category": "food & dining",
+    "eng": "Pasta, please",
+    "jp": "ぱすたをください",
+    "audio": "pasta_please.mp3"
+  },
+  {
+    "id": "im_hungry",
+    "level": 1,
+    "category": "food & dining",
+    "eng": "I'm hungry",
+    "jp": "お腹空いた",
+    "audio": "im_hungry.mp3"
+  },
+  {
+    "id": "are_you_hungry",
+    "level": 1,
+    "category": "food & dining",
+    "eng": "Are you hungry?",
+    "jp": "お腹空いた？",
+    "audio": "are_you_hungry.mp3"
+  },
+  {
+    "id": "im_thirsty",
+    "level": 1,
+    "category": "food & dining",
+    "eng": "I'm thirsty",
+    "jp": "喉が渇いた",
+    "audio": "im_thirsty.mp3"
+  },
+  {
+    "id": "im_full",
+    "level": 1,
+    "category": "food & dining",
+    "eng": "I'm full",
+    "jp": "お腹いっぱい",
+    "audio": "im_full.mp3"
+  },
+  {
+    "id": "im_tired",
+    "level": 1,
+    "category": "health & feelings",
+    "eng": "I'm tired",
+    "jp": "疲れた",
+    "audio": "im_tired.mp3"
+  },
+  {
+    "id": "im_sick",
+    "level": 1,
+    "category": "health & feelings",
+    "eng": "I'm sick",
+    "jp": "病気です",
+    "audio": "im_sick.mp3"
+  },
+  {
+    "id": "im_sleepy",
+    "level": 1,
+    "category": "health & feelings",
+    "eng": "I'm sleepy",
+    "jp": "眠い",
+    "audio": "im_sleepy.mp3"
+  },
+  {
+    "id": "are_you_tired",
+    "level": 1,
+    "category": "health & feelings",
+    "eng": "Are you tired?",
+    "jp": "疲れた？",
+    "audio": "are_you_tired.mp3"
+  },
+  {
+    "id": "are_you_sleepy",
+    "level": 1,
+    "category": "health & feelings",
+    "eng": "Are you sleepy?",
+    "jp": "眠いの？",
+    "audio": "are_you_sleepy.mp3"
+  },
+  {
+    "id": "im_glad",
+    "level": 1,
+    "category": "health & feelings",
+    "eng": "I'm glad",
+    "jp": "嬉しいです",
+    "audio": "im_glad.mp3"
+  },
+  {
+    "id": "im_sad",
+    "level": 1,
+    "category": "health & feelings",
+    "eng": "I'm sad",
+    "jp": "悲しいです",
+    "audio": "im_sad.mp3"
+  },
+  {
+    "id": "its_hot",
+    "level": 1,
+    "category": "weather",
+    "eng": "It's hot",
+    "jp": "暑いです",
+    "audio": "its_hot.mp3"
+  },
+  {
+    "id": "its_cold",
+    "level": 1,
+    "category": "weather",
+    "eng": "It's cold",
+    "jp": "寒いです",
+    "audio": "its_cold.mp3"
+  },
+  {
+    "id": "its_sunny",
+    "level": 1,
+    "category": "weather",
+    "eng": "It's sunny",
+    "jp": "晴れです",
+    "audio": "its_sunny.mp3"
+  },
+  {
+    "id": "its_raining",
+    "level": 1,
+    "category": "weather",
+    "eng": "It's raining",
+    "jp": "雨が降ってる",
+    "audio": "its_raining.mp3"
+  },
+  {
+    "id": "its_windy",
+    "level": 1,
+    "category": "weather",
+    "eng": "It's windy",
+    "jp": "風が強い",
+    "audio": "its_windy.mp3"
+  },
+  {
+    "id": "its_snowing",
+    "level": 1,
+    "category": "weather",
+    "eng": "It's snowing",
+    "jp": "雪が降ってる",
+    "audio": "its_snowing.mp3"
+  },
+  {
+    "id": "its_a_pen",
+    "level": 1,
+    "category": "describing things",
+    "eng": "It's a pen",
+    "jp": "ペンです",
+    "audio": "its_a_pen.mp3"
+  },
+  {
+    "id": "its_red",
+    "level": 1,
+    "category": "describing things",
+    "eng": "It's red",
+    "jp": "赤です",
+    "audio": "its_red.mp3"
+  },
+  {
+    "id": "its_blue",
+    "level": 1,
+    "category": "describing things",
+    "eng": "It's blue",
+    "jp": "青です",
+    "audio": "its_blue.mp3"
+  },
+  {
+    "id": "its_green",
+    "level": 1,
+    "category": "describing things",
+    "eng": "It's green",
+    "jp": "緑です",
+    "audio": "its_green.mp3"
+  },
+  {
+    "id": "its_big",
+    "level": 1,
+    "category": "describing things",
+    "eng": "It's big",
+    "jp": "大きいです",
+    "audio": "its_big.mp3"
+  },
+  {
+    "id": "its_small",
+    "level": 1,
+    "category": "describing things",
+    "eng": "It's small",
+    "jp": "小さいです",
+    "audio": "its_small.mp3"
+  },
+  {
+    "id": "its_light",
+    "level": 1,
+    "category": "describing things",
+    "eng": "It's light",
+    "jp": "軽いです",
+    "audio": "its_light.mp3"
+  },
+  {
+    "id": "its_heavy",
+    "level": 1,
+    "category": "describing things",
+    "eng": "It's heavy",
+    "jp": "重いです",
+    "audio": "its_heavy.mp3"
+  },
+  {
+    "id": "its_4_oclock",
+    "level": 1,
+    "category": "describing things",
+    "eng": "It's 4 o'clock",
+    "jp": "４時です",
+    "audio": "its_4_oclock.mp3"
+  },
+  {
+    "id": "here",
+    "level": 1,
+    "category": "location",
+    "eng": "Here",
+    "jp": "ここ",
+    "audio": "here.mp3"
+  },
+  {
+    "id": "there",
+    "level": 1,
+    "category": "location",
+    "eng": "There",
+    "jp": "そこ",
+    "audio": "there.mp3"
+  },
+  {
+    "id": "over_there",
+    "level": 1,
+    "category": "location",
+    "eng": "Over there",
+    "jp": "あそこ",
+    "audio": "over_there.mp3"
+  },
+  {
+    "id": "i_like_tennis",
+    "level": 1,
+    "category": "preferences",
+    "eng": "I like tennis",
+    "jp": "私はテニスが好きです",
+    "audio": "i_like_tennis.mp3"
+  },
+  {
+    "id": "i_like_cats",
+    "level": 1,
+    "category": "preferences",
+    "eng": "I like cats",
+    "jp": "猫が好き",
+    "audio": "i_like_cats.mp3"
+  },
+  {
+    "id": "i_dont_like_math",
+    "level": 1,
+    "category": "preferences",
+    "eng": "I don't like math",
+    "jp": "数学は好きじゃない",
+    "audio": "i_dont_like_math.mp3"
+  },
+  {
+    "id": "i_love_chocolate",
+    "level": 1,
+    "category": "preferences",
+    "eng": "I love chocolate",
+    "jp": "買い物が大好き",
+    "audio": "i_love_chocolate.mp3"
+  },
+  {
+    "id": "i_hate_bugs",
+    "level": 1,
+    "category": "preferences",
+    "eng": "I hate bugs",
+    "jp": "虫が嫌いです",
+    "audio": "i_hate_bugs.mp3"
   }
-
 ]
