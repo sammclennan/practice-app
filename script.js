@@ -208,6 +208,9 @@ const renderQuestion = ({ eng, jp, audio }, { editable = false } = {}) => {
 
   elements.quiz.sentenceEng.setAttribute('contenteditable', editable);
   elements.quiz.sentenceJp.setAttribute('contenteditable', editable);
+
+  elements.quiz.sentenceEng.classList.toggle('non-selectable', !editable);
+  elements.quiz.sentenceJp.classList.toggle('non-selectable', !editable);
 }
 
 const newQuestion = () => {

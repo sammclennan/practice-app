@@ -103,6 +103,13 @@ ol, ul {
     align-self: flex-start;
 }
 
+.non-selectable {
+    -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
+}
+
 .question-content {
     align-items: center;
     display: flex;
