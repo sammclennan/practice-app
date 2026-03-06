@@ -99,6 +99,7 @@ const fillVocabSelectMenu = (index) => {
 const autoStart = () => {
   document.querySelectorAll('.vocab-checkbox').forEach(cb => {
     cb.checked = true;
+    cb.dispatchEvent(new Event('change', { bubbles: true }));
   });
   elements.menu.startQuizBtn.click();
 }
@@ -118,7 +119,7 @@ const init = async () => {
   buildIndexAndLookup(vocabData, lookup, index);
   fillVocabSelectMenu(index);
 
-  // autoStart();
+  autoStart();
 }
 
 const updateParentCheckbox = (checkbox) => {

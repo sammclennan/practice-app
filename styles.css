@@ -212,5 +212,5 @@ ol, ul {
 }
 
 #vocab-list {
-    overflow-y: auto;
+    overflow-y: scroll;
 }
