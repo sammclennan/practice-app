@@ -169,11 +169,13 @@ ol, ul {
     flex-direction: row;
     font-size: 5rem;
     gap: 1.19rem;
+    outline: none;
 }
 
 .sentence-jp {
     font-family: var(--font-family-jp);
     font-size: 3rem;
+    outline: none;
     width: fit-content
 }
 
