@@ -262,6 +262,9 @@ elements.menu.startQuizBtn.addEventListener('click', () => {
 });
 
 elements.quiz.homeBtn.addEventListener('click', () => {
+  vocabList = [];
+  currentIndex = 0;
+
   elements.interfaces.quiz.classList.add('hidden');
   elements.interfaces.selectVocab.classList.remove('hidden');
 });

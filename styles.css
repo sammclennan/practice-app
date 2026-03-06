@@ -80,7 +80,8 @@ ol, ul {
 }
 
 .is-clozed {
-    border-bottom: 3px solid black;
+    /* border-bottom: 3px solid black; */
+    border-bottom-color: black !important;
     color: transparent;
 }
 
@@ -195,6 +196,7 @@ ol, ul {
 }
 
 .vocab-list-label {
+    cursor: pointer;
     display: block;
     margin-bottom: 0.25em;
 }
@@ -202,6 +204,7 @@ ol, ul {
 .word-eng {
     cursor: pointer;
     height: 1lh;
+    border-bottom: 3px solid transparent;
     box-sizing: border-box;
 }
 

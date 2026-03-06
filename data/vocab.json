@@ -64,6 +64,14 @@
     "audio": "im_maria.mp3"
   },
   {
+    "id": "im_john",
+    "level": 1,
+    "category": "introduction",
+    "eng": "I'm John",
+    "jp": "私はジョンです",
+    "audio": "im_john.mp3"
+  },
+  {
     "id": "nice_to_meet_you",
     "level": 1,
     "category": "introduction",
@@ -92,7 +100,7 @@
     "level": 1,
     "category": "introduction",
     "eng": "I am from Japan",
-    "jp": "日本から来ました",
+    "jp": "私は日本出身です",
     "audio": "i_am_from_japan.mp3"
   },
   {
@@ -212,7 +220,7 @@
     "level": 1,
     "category": "basic conversation",
     "eng": "Please",
-    "jp": "お願い",
+    "jp": "お願いします",
     "audio": "please.mp3"
   },
   {
@@ -1280,14 +1288,6 @@
     "audio": "got_it.mp3"
   },
   {
-    "id": "whatcha_doin",
-    "level": 1,
-    "category": "casual phrases",
-    "eng": "Whatcha doin'?",
-    "jp": "何してんの？",
-    "audio": "whatcha_doin.mp3"
-  },
-  {
     "id": "sure",
     "level": 1,
     "category": "casual phrases",
@@ -1304,12 +1304,12 @@
     "audio": "all_right.mp3"
   },
   {
-    "id": "see_ya",
+    "id": "whatcha_doin",
     "level": 1,
     "category": "casual phrases",
-    "eng": "See ya",
-    "jp": "じゃあね",
-    "audio": "see_ya.mp3"
+    "eng": "Whatcha doin'?",
+    "jp": "何してんの？",
+    "audio": "whatcha_doin.mp3"
   },
   {
     "id": "gotta_go",
@@ -1318,5 +1318,13 @@
     "eng": "Gotta go",
     "jp": "行かなきゃ",
     "audio": "gotta_go.mp3"
+  },
+  {
+    "id": "see_ya",
+    "level": 1,
+    "category": "casual phrases",
+    "eng": "See ya",
+    "jp": "じゃあね",
+    "audio": "see_ya.mp3"
   }
 ]
