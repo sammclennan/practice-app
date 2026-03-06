@@ -120,7 +120,7 @@ const init = async () => {
   buildIndexAndLookup(vocabData, lookup, index);
   fillVocabSelectMenu(index);
 
-  autoStart();
+  // autoStart();
 }
 
 const updateParentCheckbox = (checkbox) => {
