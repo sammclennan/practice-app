@@ -1,18 +1,26 @@
 :root {
+    /* Fonts */
     --font-family-eng: 'Fredoka', sans-serif;
     --font-family-jp: 'Kosugi Maru', sans-serif;
+
+    /* Colors */
+    --container-border: rgb(169, 169, 169);
+    --deep-blue-text: rgb(33, 43, 65);
     --lilac-btn: rgb(206, 130, 255);
+    --off-white-background: rgb(247, 247, 247);
     --sky-blue-btn: rgb(28, 176, 246);
     --sky-blue-btn-shadow: rgb(24 153 214);
 }
 
 * {
     box-sizing: border-box;
-    /* margin: 0;
-    padding: 0; */
+    margin: 0;
+    padding: 0;
 }
 
 body {
+    background-color: var(--off-white-background);
+    color: var(--deep-blue-text);
     font-family: var(--font-family-eng);
 }
 
@@ -28,6 +36,10 @@ ol, ul {
     padding-left: 2rem;
 }
 
+.btn-raised {
+
+}
+
 .hidden {
     display: none !important;
 }
@@ -35,6 +47,11 @@ ol, ul {
 .is-clozed {
     border-bottom: 3px solid black;
     color: transparent;
+}
+
+.menu-header {
+    font-size: 4rem;
+    text-align: center;
 }
 
 .question-content {
@@ -76,12 +93,26 @@ ol, ul {
 
 .quiz-interface {
     align-items: center;
+    background-color: white;
     display: flex;
     flex-direction: column;
     height: 100vh;
     justify-content: space-between;
     padding: 3rem 1rem;
     text-align: center;
+}
+
+.select-vocab-interface {
+    background: white;
+    border: 2px solid var(--container-border);
+    border-radius: 1rem;
+    box-shadow: 2px 6px var(--container-border);
+    display: flex;
+    flex-direction: column;
+    height: 80vh;
+    margin: 2rem auto 0;
+    padding: 1rem;
+    width: min(80%, 600px);
 }
 
 .sentence-eng {
@@ -107,10 +138,19 @@ ol, ul {
     box-sizing: border-box;
 }
 
+#start-quiz-btn {
+    margin: auto;
+    width: fit-content;
+}
+
 #toggle-edit {
     display: none;
 }
 
 #toggle-edit-container:has(input:checked) {
     background-color: var(--lilac-btn);
+}
+
+#vocab-list {
+    overflow-y: auto;
 }
